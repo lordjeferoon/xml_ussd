@@ -1,0 +1,29 @@
+<!DOCTYPE pages SYSTEM "cellflash.dtd">
+
+<pages descr="pre_service_611">
+
+  <page ismenu="false" volatile="false">
+    <title>count_event_611</title>
+    <redirect src="erl://svc_util_telefonica_argentina:event_counter?acceso_codigo_611&amp;&amp;&amp;%23check_if_roaming"/>
+  </page>
+
+  <page tag="check_if_roaming" ismenu="false" volatile="false">
+    <title>check_if_roaming</title>
+    <redirect src="erl://svc_core:redir_by_attribute?vlr&amp;prefix&amp;54=%23set_default_language_es,%3F=%23count_event_roaming"/>
+  </page>
+
+  <page tag="set_default_language_es" descr="set spanish as only language for all users" ismenu="false" volatile="false">
+    <title>set_default_language_es</title>
+    <redirect src="erl://svc_core_ext:set_attribute?language&amp;%23redir_star_155&amp;%23redir_star_155&amp;es"/>
+  </page>
+
+  <page tag="count_event_roaming" ismenu="false" volatile="false">
+    <title>count_event_roaming</title>
+    <redirect src="erl://svc_util_telefonica_argentina:event_counter?acceso_roaming&amp;&amp;&amp;%23set_default_language_es"/>
+  </page>
+
+  <page tag="redir_star_155" descr="service code *611#" ismenu="false" volatile="false">
+  <title>star_155</title>
+    <redirect src="erl://svc_core:change_service?acceptance%2Findex"/>
+  </page>
+</pages>
