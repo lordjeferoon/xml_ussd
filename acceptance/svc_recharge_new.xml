@@ -12,7 +12,7 @@
 
 <page tag="3rd_part_recharge_msg" descr="other user recharge" ismenu="false" nav="end" volatile="false" count="true">
  <title>3rd_part_recharge_msg</title>
-La recarga al abonado <include src="#show_dest_msisdn"/> fue exitosa. El ajuste se realizará en unos segundos.
+La recarga al abonado <include src="erl://svc_variable:incl?qp_quema_pin&amp;dest_msisdn"/> fue exitosa. El ajuste se realizará en unos segundos.
 </page>
 
 <page tag="cdr_dump_qp_quema_pin" ismenu="false" volatile="false">
@@ -246,7 +246,7 @@ Tu cuenta se recargó con éxito. El ajuste se realizará en unos segundos.
 </page>
 
 <page tag="recarga_exitosa" descr="RecargaSaldo_OtroMovistar_OperacionOk" ismenu="false" nav="end" volatile="false" count="true">
-La recarga al abonado <include src="#show_dest_msisdn"/> fue exitosa. El ajuste se realizará en unos segundos.
+La recarga al abonado <include src="erl://svc_variable:incl?qp_quema_pin&amp;dest_msisdn"/> fue exitosa. El ajuste se realizará en unos segundos.
 </page>
 
 <page tag="recharge_message" descr="own account" ismenu="false" nav="end" volatile="false" count="true">

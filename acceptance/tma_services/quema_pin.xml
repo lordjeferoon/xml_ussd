@@ -15,7 +15,7 @@ Ingresa el numero de PIN de tu tarjeta Movistar:  <form action="erl://svc_variab
 </page>
 
 <page tag="PIN_correcto" descr="Servicios_QuemaPIN_ConfirmarPIN" ismenu="false" volatile="false" count="true">
-El codigo ingresado es el siguiente <include src="#incl_pin"/> <br/>
+El codigo ingresado es el siguiente <include src="erl://svc_variable:incl?quema&amp;pin"/> <br/>
 <a href="#send_ws" key="1"> Confirmar</a><br/>
 <a href="#error_erroneo" key="2"> Cancelar</a>
 </page>
@@ -57,6 +57,15 @@ El PIN debe ser numerico de 16 digitos. Por favor intenta de nuevo:  <form actio
   <redirect src="erl://svc_monederos:decode_xml_attribute?quema&amp;exponent&amp;exponent&amp;%23calculate_with_exponent"/>
 </page>
 
+<page tag="distinto_a_16" ismenu="false" volatile="false" count="true">
+El PIN debe ser numérico de 16 digitos. Por favor intentá de nuevo:  <form action="erl://svc_variable:set_v2?quema&amp;pin&amp;%23extrae_msisdn">
+    <entry>
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
 <page tag="doqueryBalanceSvagw" ismenu="false" volatile="false">
   <redirect src="erl://svc_xml_generic_telefonica_argentina:request?queryBalanceSvagw&amp;xml_generic&amp;public&amp;ok=%23extraerSaldo,%3F=%23nosaldo"/>
 </page>
@@ -77,6 +86,18 @@ Ocurrio un error. El pin ingresado no es valido.
   <redirect src="erl://svc_variable:incl?public&amp;saldototal"/>
 </page>
 
+<page tag="id11" ismenu="false" nav="end" volatile="false" count="true">
+<include src="erl://svc_variable:incl?pull_init&amp;result"/>
+</page>
+
+<page tag="id12" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:incl?pull_init&amp;result"/>
+</page>
+
+<page tag="id3" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:incl?quema&amp;pin"/>
+</page>
+
 <page tag="incl_fc" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:incl?quema&amp;faultcode"/>
 </page>
@@ -89,8 +110,18 @@ Ocurrio un error. El pin ingresado no es valido.
   <redirect src="erl://svc_variable:incl?quema&amp;result"/>
 </page>
 
+<page tag="largo_16" ismenu="false" volatile="false" count="true">
+El código ingresado es el siguiente <include src="erl://svc_variable:incl?quema&amp;pin"/> <br/>
+<a href="#send_pull" key="1"> Confirmar</a><br/>
+<a href="#" key="2"> Cancelar</a>
+</page>
+
+<page tag="mensaje_AA" ismenu="false" nav="end" volatile="false" count="true">
+<include src="erl://svc_variable:incl?pull_init&amp;result"/>
+</page>
+
 <page tag="muestra_resultOk_AA" descr="Servicios_QuemaPIN_MuestraResultadoOkAA" ismenu="false" nav="end" volatile="false" count="true">
-Su recarga ha sido exitosa. Su nuevo saldo es $<include src="#incl_result"/>
+Su recarga ha sido exitosa. Su nuevo saldo es $<include src="erl://svc_variable:incl?quema&amp;result"/>
 </page>
 
 <page tag="muestra_result_error" descr="Servicios_QuemaPIN_MuestraResultadoNokAA" ismenu="false" nav="end" volatile="false" count="true">
@@ -114,23 +145,31 @@ En este momento el servicio no se encuentra disponible. Por favor intenta mas ta
 </page>
 
 <page tag="recarga_respuesta_fault" descr="Servicios_QuemaPIN_ErrorAA" ismenu="false" nav="end" volatile="false" count="true">
-Ocurrio un error (<include src="#incl_fc"/>) de procesamiento de la recarga. Por favor comuniquese al *611
+Ocurrio un error (<include src="erl://svc_variable:incl?quema&amp;faultcode"/>) de procesamiento de la recarga. Por favor comuniquese al *611
 </page>
 
 <page tag="redir_faultcode" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:redir_by_variable?quema&amp;faultcode&amp;equal&amp;1080000022=%23pin_no_activo,1080000019=%23pin_erroneo,%3F=%23recarga_respuesta_fault"/>
 </page>
 
+<page tag="respuesta_AA" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?pull_init&amp;result&amp;prefix&amp;De%20movistar%3A%20Su%20recarga=%23count_recarga_ok,%3F=%23count_recarga_falla"/>
+</page>
+
 <page tag="saldo_mensaje_error" descr="Servicios_QuemaPIN_ErrorAA" ismenu="false" nav="end" volatile="false" count="true">
 En este momento el servicio no se encuentra disponible. Por favor intenta mas tarde.
 </page>
 
+<page tag="send_pull" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_ussd:subst_pull_init?%2A444%2A&amp;%24(quema.pin.)&amp;pullinit&amp;phase2&amp;%23respuesta_AA&amp;%23count_recarga_error&amp;"/>
+</page>
+
 <page tag="send_ws" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?voucherCardAccount_V13&amp;xml_generic&amp;quema&amp;%2FOCS%2FVoucherManagementService_v1&amp;http_altamira_produccion&amp;10000&amp;quema&amp;error_code&amp;error_msg&amp;ok=%23check_error_code,%3F=%23count_recarga_error"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?voucherCardAccount_V13&amp;xml_generic&amp;quema&amp;ok=%23check_error_code,%3F=%23count_recarga_error"/>
 </page>
 
 <page tag="send_ws_saldo" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?queryBalance_V13B&amp;xml_generic&amp;quema&amp;%2FOCS%2FBalanceManagementService_v1&amp;http_altamira_produccion&amp;10000&amp;quema&amp;error_code_saldo&amp;error_msg_saldo&amp;ok=%23decode_exponent,%3F=%23saldo_mensaje_error"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?queryBalance_V13B&amp;xml_generic&amp;quema&amp;ok=%23decode_exponent,%3F=%23saldo_mensaje_error"/>
 </page>
 
 <page tag="verifico_largo" ismenu="false" volatile="false">
@@ -138,7 +177,7 @@ En este momento el servicio no se encuentra disponible. Por favor intenta mas ta
 </page>
 
 <page tag="versaldo" ismenu="false" volatile="false" count="true">
-Su recarga ha sido exitosa. Su nuevo saldo es $<include src="#id1"/>
+Su recarga ha sido exitosa. Su nuevo saldo es $<include src="erl://svc_variable:incl?public&amp;saldototal"/>
 </page>
 
 

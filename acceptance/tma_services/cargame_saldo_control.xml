@@ -19,11 +19,11 @@ Carga saldo a otro Movistar Prepago o Comunidad Mas y págalo en tu prox factura
 </page>
 
 <page tag="Error_Bnumber_defined" descr="Control_CargameSaldo_ErrorValidaReceptor" ismenu="false" volatile="false" count="true">
-<include src="#get_Error_Bnumber_defined"/>
+<include src="dynerl://svc_cargame:include_content_by_key?err_msg_vrh&amp;%24(cargame.codigo_VRH.)&amp;Error%3A%20en%20este%20momento%20el%20servicio%20no%20está%20disponible!"/>
 </page>
 
 <page tag="Error_noaccess_defined" descr="Control_CargameSaldo_ErrorValidaSolicitante" ismenu="false" nav="end" volatile="false" count="true">
-<include src="#get_err_code"/>
+<include src="dynerl://svc_cargame:include_content_by_key?err_msg_vsh&amp;%24(cargame.codigo_VSH.)&amp;Hubo%20un%20error%2C%20por%20favor%20reintenta%20mas%20tarde"/>
 </page>
 
 <page tag="amount_format_invalid" descr="Control_CargameSaldo_MontoInvalido" ismenu="false" volatile="false" count="true">
@@ -56,7 +56,7 @@ El monto debe ser entre $1 y $150 pesos. Ingrese el importe nuevamente  <form ac
 </page>
 
 <page tag="confirm_transfer" descr="Control_CargameSaldo_ConfirmaDatos" ismenu="false" volatile="false" count="true">
-Confirma la recarga por $ <include src="#include_amount"/> al movistar <include src="#include_msisdn_b"/>.<br/>
+Confirma la recarga por $ <include src="erl://svc_variable:incl?cargame&amp;amount"/> al movistar <include src="erl://svc_variable:incl?cargame&amp;msisdn_b"/>.<br/>
 <a href="#send_realizarOperacion" key="1"> Confirmar</a>
 </page>
 
@@ -155,7 +155,7 @@ Tu solicitud está siendo procesada, en breve recibiras un SMS con la confirmaci
 </page>
 
 <page tag="transfer_not_posible" descr="Control_CargameSaldo_OperacionNOK" ismenu="false" nav="end" volatile="false" count="true">
-<include src="#include_Message_RO"/>
+<include src="dynerl://svc_cargame:include_content_by_key?err_msg_ro&amp;%24(cargame.codigo_RO.)&amp;Error%3A%20en%20este%20momento%20el%20servicio%20no%20está%20disponible!"/>
 </page>
 
 
