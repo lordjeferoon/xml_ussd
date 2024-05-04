@@ -123,7 +123,7 @@ Recibiras un SMS para que puedas descargar la App Mi Movistar
 </page>
 
 <page tag="ir_estado_de_cuenta_control_AMD" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Fsvc_account_status_and_services_plan_AHORRO_new_amdocs_2018"/>
+  <redirect src="erl://svc_core:change_service?..%2Fsvc_account_status_and_services_plan_AHORRO_new_amdocs_20180914"/>
 </page>
 
 <page tag="ir_estado_de_cuenta_full_AMD" ismenu="false" volatile="false">
@@ -143,7 +143,7 @@ Recibiras un SMS para que puedas descargar la App Mi Movistar
 </page>
 
 <page tag="sndsms" ismenu="false" volatile="false">
-  <redirect src="erl://svc_sms:sms_mt?4762&amp;Este%20es%20el%20link!%20Descarga%20la%20APP%20Mi%20Movistar%20desde%20aca%20mov.is%2Fb64N%20para%20gestionar%20tu%20linea!&amp;smsMT&amp;false&amp;%23id1&amp;%23id1&amp;SMSMT&amp;"/>
+  <redirect src="erl://svc_sms:sms_mt?4762&amp;Este%20es%20el%20link!%20Descarga%20la%20APP%20Mi%20Movistar%20desde%20aca%20mov.is%2FvgHh%20para%20gestionar%20tu%20linea!&amp;smsMT&amp;false&amp;%23id1&amp;%23id1&amp;SMSMT&amp;"/>
 </page>
 
 

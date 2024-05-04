@@ -66,9 +66,9 @@ Recibiras un SMS para que puedas descargar la APP Mi Movistar
 </page>
 
 <page tag="message_account_status" descr="Control_Amdocs_EstadoCuenta_MuestraEstado" ismenu="false" volatile="false" count="true">
-Su ultimo resumen de cuenta con vencimiento el dia <include src="#incl_fechas_fecha_venc_factura"/> fue de $<include src="#incl_saldo_ult_fact"/>, IVA incluido.<br/>
-El saldo adeudado a la fecha es de $<include src="#incl_saldos_saldo_cta_cte"/>, IVA incluido.<br/>
-Su proximo cierre es el dia <include src="#incl_fechas_fecha_prox_cierre"/>, con vencimiento el  <include src="#incl_fechas_fecha_prox_venc_fact"/>
+Su ultimo resumen de cuenta con vencimiento el dia <include src="erl://svc_variable:incl?estado_cuenta&amp;fecha_venc_fact"/> fue de $<include src="erl://svc_variable:incl?estado_cuenta&amp;saldo_ult_fact"/>, IVA incluido.<br/>
+El saldo adeudado a la fecha es de $<include src="erl://svc_variable:incl?estado_cuenta&amp;saldo_cta_cte"/>, IVA incluido.<br/>
+Su proximo cierre es el dia <include src="erl://svc_variable:incl?estado_cuenta&amp;fecha_prox_cierre"/>, con vencimiento el  <include src="erl://svc_variable:incl?estado_cuenta&amp;fecha_prox_venc_fact"/>
 </page>
 
 <page tag="req_err" ismenu="false" volatile="false">
@@ -92,7 +92,7 @@ Su proximo cierre es el dia <include src="#incl_fechas_fecha_prox_cierre"/>, con
 </page>
 
 <page tag="sndsms" ismenu="false" volatile="false">
-  <redirect src="erl://svc_sms:sms_mt?4762&amp;Este%20es%20el%20link!%20Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2Fb64N%20para%20gestionar%20tu%20linea!&amp;smsMT&amp;false&amp;%23id3&amp;%23id3&amp;SMSMT&amp;"/>
+  <redirect src="erl://svc_sms:sms_mt?4762&amp;Este%20es%20el%20link!%20Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2FvgHh%20para%20gestionar%20tu%20linea!&amp;smsMT&amp;false&amp;%23id3&amp;%23id3&amp;SMSMT&amp;"/>
 </page>
 
 <page tag="start2" ismenu="false" volatile="false">

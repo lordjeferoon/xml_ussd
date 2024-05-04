@@ -273,7 +273,7 @@ Gracias x adherirte. A partir de ahora recibiras tu factura x email y no en pape
 </page>
 
 <page tag="sendsmsapp" ismenu="false" volatile="false">
-  <redirect src="erl://svc_sms:sms_mt?4762&amp;Este%20es%20el%20link!%20Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2Fb64N%20para%20gestionar%20tu%20linea&amp;smsMT&amp;false&amp;%23id1&amp;%23id1&amp;SMSMT&amp;"/>
+  <redirect src="erl://svc_sms:sms_mt?4762&amp;Este%20es%20el%20link!%20Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2FvgHh%20para%20gestionar%20tu%20linea&amp;smsMT&amp;false&amp;%23id1&amp;%23id1&amp;SMSMT&amp;"/>
 </page>
 
 <page tag="set_fsp" ismenu="false" volatile="false">
