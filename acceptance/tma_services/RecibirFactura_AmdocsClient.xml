@@ -62,7 +62,7 @@
 </page>
 
 <page tag="init_cliente" ismenu="false" volatile="false">
-  <redirect src="erl://svc_variable:set_v2?invoices_serv&amp;cliente&amp;%23extract_cliente&amp;"/>
+  <redirect src="erl://svc_variable:set_v2?invoices_serv&amp;cliente&amp;%23extract_cliente&amp;null"/>
 </page>
 
 <page tag="send_checkCliente" ismenu="false" volatile="false">
