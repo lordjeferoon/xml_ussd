@@ -6,7 +6,7 @@
 <pages descr="alta_numero_free">
 
 <page ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarListasDisponibles&amp;xml_generic&amp;numero_free&amp;ok=%23redir_codigo,%3F=%23Error%20xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarListasDisponibles&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st,%3F=%23Error%20xml"/>
 </page>
 
 <page tag="Alta_Nro_Free_Menu_Principal" descr="NumeroFree_Alta_MenuPrincipalOpcionesPlanPromoComunidad" ismenu="false" volatile="false" count="true">
@@ -35,7 +35,7 @@ Selecciona la lista en la que vas a dar de alta tu Nro Free:<br/>
 </page>
 
 <page tag="Cargar_Numero" descr="NumeroFree_Alta_IngresaAni" ismenu="false" volatile="false" count="true">
-Tenes <include src="erl://svc_variable:incl?numero_free&amp;remaining_items"/> Nros para dar de alta. Ingresa tu nuevo Nro, con cod de area, sin 0 ni 15.  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico">
+Tenes <include src="#id7"/> Nros para dar de alta. Ingresa tu nuevo Nro, con cod de area, sin 0 ni 15.  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico">
     <entry>
       <prompt></prompt>
     </entry>
@@ -50,8 +50,20 @@ Selecciona:<br/>
 </page>
 
 <page tag="Confirma_Agregar" descr="NumeroFree_Alta_ConfirmaAni" ismenu="false" volatile="false" count="true">
-El numero ingresado es <include src="erl://svc_variable:incl?numero_free&amp;numeroTelefonico"/>.<br/>
+El numero ingresado es <include src="#incl_numeroTelefonico"/>.<br/>
 <a href="#copy_of_req_agregarNumerosEnlista(3)" key="1"> Confirmar</a>
+</page>
+
+<page tag="DescenAlta_error_request" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?DescEnAlta&amp;&amp;&amp;%23error_xml_after_retry"/>
+</page>
+
+<page tag="DesconAltaPlan" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?DesconAltaPlan&amp;&amp;&amp;%23inconsistency_plan"/>
+</page>
+
+<page tag="DesconAltaPlan_retry" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?DescEnAlta&amp;&amp;&amp;%23error_backend"/>
 </page>
 
 <page tag="Error xml" descr="NumeroFree_Alta_ErrorServicioListaNoValida" ismenu="false" nav="end" volatile="false" count="true">
@@ -76,12 +88,34 @@ El Numero ingresado es invalido. Ingresa tu nuevo Nro Free Movistar, con cod de 
 
 </page>
 
+<page tag="ExitoAltaPlan" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?ExitoAltaPlan&amp;&amp;&amp;%23ok_agrega"/>
+</page>
+
+<page tag="ExitoAltaPlan_retry" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?ExitoAltaPlan&amp;&amp;&amp;%23id2"/>
+</page>
+
 <page tag="ExitoAltaPromo" ismenu="false" volatile="false">
   <redirect src="erl://svc_util_telefonica_argentina:event_counter?ExitoAltaPromo&amp;&amp;&amp;%23Ok_Agrega"/>
 </page>
 
 <page tag="Limite_anis" descr="NumeroFree_Alta_LimiteAniIngresados" ismenu="false" volatile="false" count="true">
 Ya cargaste todos tus Nros disponibles para esta lista
+</page>
+
+<page tag="Menu2" descr="Menu2" ismenu="false" volatile="false" count="true">
+ <title>Menu2</title>
+Selecciona:<br/>
+<a href="#copy_of_set_codigoLista(2)" key="1"> VOZ</a><br/>
+<a href="#copy_of_set_codigoLista(3)" key="2"> SMS</a>
+</page>
+
+<page tag="Menu3" descr="Menu2" ismenu="false" volatile="false" count="true">
+ <title>Menu2</title>
+Selecciona:<br/>
+<a href="#copy_of_set_codigoLista(4)" key="1"> VOZ</a><br/>
+<a href="#copy_of_set_codigoLista(5)" key="2"> SMS</a>
 </page>
 
 <page tag="Ok_Agrega" descr="NumeroFree_Alta_OperacionExitosa" ismenu="false" volatile="false" count="true">
@@ -101,8 +135,64 @@ Selecciona:<br/>
 <a href="#copy_of_set_codigoLista(7)" key="2"> SMS</a>
 </page>
 
+<page tag="cargar_numero" descr="cargar_numero" ismenu="false" volatile="false" count="true">
+ <title>cargar_numero</title>
+Tenes <include src="#incl_remaining_items"/> Nros Free para dar de alta. Ingresa tu nuevo Nro Free Movistar, con cod de area, sin 0 ni 15  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico">
+    <entry kind="digits">
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
 <page tag="compare_length" ismenu="false" volatile="false">
   <redirect src="dynerl://svc_arithmetic:compare?%24(numero_free.length.)&amp;%24(numero_free.cantidadMaximaItems.)&amp;%3C&amp;%23copy_of_get_remaining_items&amp;%23Limite_anis&amp;%23plug-in%20err"/>
+</page>
+
+<page tag="compare_numeroList" ismenu="false" volatile="false">
+  <redirect src="erl://svc_numero_free:compare_msisdn?numero_free&amp;numeroList1&amp;numeroList2&amp;%23copy_of_set_cantidadMaximaItems&amp;%23DesconAltaPlan"/>
+</page>
+
+<page tag="compare_prefix" ismenu="false" volatile="false">
+  <redirect src="erl://svc_numero_free:compare_prefix?numero_free&amp;numeroAbonado&amp;numeroTelefonico&amp;%23confirma_agragar&amp;%23error_areacode"/>
+</page>
+
+<page tag="confirma_agragar" descr="confirma_agragar" ismenu="false" volatile="false" count="true">
+ <title>confirma_agragar</title>
+El numero ingresado es <include src="#incl_numeroTelefonico"/>.<br/>
+<a href="#copy_of_set_codigoLista(6)" key="1"> Confirmar</a>
+</page>
+
+<page tag="copy_of_ExitoAltaPromo" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?ExitoAltaPromo&amp;&amp;&amp;%23copy_of_ok_agrega3"/>
+</page>
+
+<page tag="copy_of_cargar_numero" descr="cargar_numero" ismenu="false" volatile="false" count="true">
+ <title>cargar_numero</title>
+Tenes <include src="#incl_remaining_items"/> Nros Free para dar de alta. Ingresa tu nuevo Nro Free Movistar, con cod de area, sin 0 ni 15.  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico">
+    <entry>
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
+<page tag="copy_of_cargar_numero(2)" descr="cargar_numero" ismenu="false" volatile="false" count="true">
+ <title>cargar_numero</title>
+Tenes <include src="#incl_remaining_items"/> Nros para dar de alta. Ingresa tu nuevo Nro, con cod de area, sin 0 ni 15.  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico(2)">
+    <entry>
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
+<page tag="copy_of_compare_length" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_arithmetic:compare?%24(numero_free.length2.)&amp;%24(numero_free.cantidadMaximaItems.)&amp;%3C&amp;%23get_remaining_items&amp;%23limite_anis&amp;%23plug-in%20err"/>
+</page>
+
+<page tag="copy_of_compare_length(2)" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_arithmetic:compare?%24(numero_free.length2.)&amp;%24(numero_free.cantidadMaximaItems.)&amp;%3C&amp;%23ok_agrega2&amp;%23end&amp;%23plug-in%20err"/>
 </page>
 
 <page tag="copy_of_compare_length(3)" ismenu="false" volatile="false">
@@ -111,6 +201,66 @@ Selecciona:<br/>
 
 <page tag="copy_of_compare_prefix" ismenu="false" volatile="false">
   <redirect src="erl://svc_numero_free:compare_prefix?numero_free&amp;numeroAbonado&amp;numeroTelefonico&amp;%23Confirma_Agregar&amp;%23Error_Area_Code"/>
+</page>
+
+<page tag="copy_of_compare_prefix(2)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_numero_free:compare_prefix?numero_free&amp;numeroAbonado&amp;numeroTelefonico&amp;%23copy_of_confirma_agragar(2)&amp;%23copy_of_error_areacode(2)"/>
+</page>
+
+<page tag="copy_of_confirma_agragar" descr="confirma_agragar" ismenu="false" volatile="false" count="true">
+ <title>confirma_agragar</title>
+El numero ingresado es <include src="#incl_numeroTelefonico"/>.<br/>
+<a href="#copy_of_req_agregarNumerosEnlista(3)" key="1"> Confirmar</a>
+</page>
+
+<page tag="copy_of_confirma_agragar(2)" descr="confirma_agragar" ismenu="false" volatile="false" count="true">
+ <title>confirma_agragar</title>
+El numero ingresado es <include src="#incl_numeroTelefonico"/>.<br/>
+<a href="#copy_of_req_agregarNumerosEnlista(4)" key="1"> Confirmar</a>
+</page>
+
+<page tag="copy_of_error_areacode" descr="error_areacode" ismenu="false" volatile="false" count="true">
+ <title>error_areacode</title>
+Recorda que el Nro Free que elijas tiene que tener tu mismo cod de area interurbano. Volve a ingresar tu nuevo Nro Free  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico">
+    <entry>
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
+<page tag="copy_of_error_areacode(2)" descr="error_areacode" ismenu="false" volatile="false" count="true">
+ <title>error_areacode</title>
+Recorda que el Nro que elijas tiene que tener tu mismo cod de area interurbano. Volve a ingresar tu nuevo Nro  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico(2)">
+    <entry>
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
+<page tag="copy_of_error_msisdn" descr="error_msisdn" ismenu="false" volatile="false" count="true">
+ <title>error_msisdn</title>
+El Numero ingresado es invalido. Ingresa tu nuevo Nro Free Movistar, con cod de area, sin 0 ni 15  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico">
+    <entry>
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
+<page tag="copy_of_error_msisdn(2)" descr="error_msisdn" ismenu="false" volatile="false" count="true">
+ <title>error_msisdn</title>
+El Numero ingresado es invalido. Ingresa tu nuevo Nro, con cod de area, sin 0 ni 15  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico(2)">
+    <entry>
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
+<page tag="copy_of_get_msisdn" ismenu="false" volatile="false">
+  <redirect src="erl://svc_numero_free:get_msisdn?numero_free&amp;numero_list&amp;numeroList2&amp;length2&amp;%23compare_numeroList"/>
 </page>
 
 <page tag="copy_of_get_msisdn(2)" ismenu="false" volatile="false">
@@ -129,8 +279,39 @@ Selecciona:<br/>
   <redirect src="dynerl://svc_arithmetic:arithmetic?numero_free&amp;%24(numero_free.cantidadMaximaItems.)&amp;%24(numero_free.length.)&amp;-&amp;remaining_items&amp;0&amp;%23Cargar_Numero&amp;%23plug-in%20err"/>
 </page>
 
+<page tag="copy_of_limite_anis" descr="limite_anis" ismenu="false" volatile="false" count="true">
+ <title>limite_anis</title>
+Ya cargaste todos tus Nros disponibles para esta lista
+</page>
+
+<page tag="copy_of_ok_agrega3" descr="ok_agrega" ismenu="false" volatile="false" count="true">
+ <title>ok_agrega</title>
+El Nro fue dado de alta con éxito.<br/>
+<a href="#redir_info" key="1"> Dar de alta otro numero</a>
+</page>
+
+<page tag="copy_of_redir_codigo" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23get_msisdn,20000500=%23get_msisdn,%3F=%23error_backend"/>
+</page>
+
+<page tag="copy_of_redir_codigo(2)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23copy_of_get_msisdn,20000500=%23copy_of_get_msisdn,%3F=%23error_backend"/>
+</page>
+
 <page tag="copy_of_redir_codigo(3)" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23copy_of_get_msisdn(2),20000500=%23copy_of_get_msisdn(2),%3F=%23error_backend"/>
+</page>
+
+<page tag="copy_of_redir_codigo(4)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23copy_of_set_codigoLista(7),%3F=%23error_backend"/>
+</page>
+
+<page tag="copy_of_redir_codigo(5)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23ExitoAltaPlan,10000017=%23wait_before_retyr,10000018=%23wait_before_retyr,99400001=%23wait_before_retyr,%3F=%23descenAlta_error_bef_retry"/>
+</page>
+
+<page tag="copy_of_redir_codigo(6)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23ExitoAltaPlan_retry,%3F=%23DesconAltaPlan_retry"/>
 </page>
 
 <page tag="copy_of_redir_codigo(7)" ismenu="false" volatile="false">
@@ -139,6 +320,10 @@ Selecciona:<br/>
 
 <page tag="copy_of_redir_codigo(8)" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23copy_of_get_msisdn(3),20000500=%23copy_of_get_msisdn(3),%3F=%23error_backend"/>
+</page>
+
+<page tag="copy_of_redir_codigo(9)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23copy_of_ExitoAltaPromo,%3F=%23error_backend"/>
 </page>
 
 <page tag="copy_of_redir_info" ismenu="false" volatile="false">
@@ -157,24 +342,56 @@ Selecciona:<br/>
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;numeroTelefonico&amp;contain&amp;%5E%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%24=%23copy_of_compare_prefix,%3F=%23Error_msisdn"/>
 </page>
 
+<page tag="copy_of_redir_numeroTelefonico(2)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;numeroTelefonico&amp;contain&amp;%5E%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%24=%23copy_of_compare_prefix(2),%3F=%23copy_of_error_msisdn(2)"/>
+</page>
+
 <page tag="copy_of_redir_st_6" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(8),500=%23copy_of_redir_codigo(8),%3F=%23Error%20xml"/>
 </page>
 
+<page tag="copy_of_redir_st_7" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(9),500=%23copy_of_redir_codigo(9),%3F=%23Error%20xml"/>
+</page>
+
+<page tag="copy_of_req_agregarNumerosEnlista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?agregarNumerosEnlista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_4,%3F=%23desc_en_alta_before_retry_error_request"/>
+</page>
+
+<page tag="copy_of_req_agregarNumerosEnlista(2)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?agregarNumerosEnlista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_5,%3F=%23DescenAlta_error_request"/>
+</page>
+
 <page tag="copy_of_req_agregarNumerosEnlista(3)" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?agregarNumerosEnlista&amp;xml_generic&amp;numero_free&amp;ok=%23copy_of_redir_codigo(7),%3F=%23Error%20xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?agregarNumerosEnlista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_7,%3F=%23Error%20xml"/>
+</page>
+
+<page tag="copy_of_req_agregarNumerosEnlista(4)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?agregarNumerosEnlista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23copy_of_redir_st_7,%3F=%23Error%20xml"/>
+</page>
+
+<page tag="copy_of_req_consultarNumerosEnLista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_2,%3F=%23Error%20xml"/>
 </page>
 
 <page tag="copy_of_req_consultarNumerosEnLista(2)" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;ok=%23copy_of_redir_codigo(3),%3F=%23Error%20xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_6,%3F=%23Error%20xml"/>
 </page>
 
 <page tag="copy_of_req_consultarNumerosEnLista(3)" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_freeg&amp;ok=%23copy_of_redir_codigo(8),%3F=%23Error%20xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23copy_of_redir_st_6,%3F=%23Error%20xml"/>
+</page>
+
+<page tag="copy_of_set_cantidadMaximaItems" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;cantidadMaximaItems&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23copy_of_compare_length"/>
 </page>
 
 <page tag="copy_of_set_cantidadMaximaItems(2)" ismenu="false" volatile="false">
   <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;cantidadMaximaItems&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23copy_of_compare_length(3)"/>
+</page>
+
+<page tag="copy_of_set_codigoLista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:set_v2?numero_free&amp;codigoLista&amp;%23copy_of_set_piloto&amp;LI06"/>
 </page>
 
 <page tag="copy_of_set_codigoLista(2)" ismenu="false" volatile="false">
@@ -201,16 +418,110 @@ Selecciona:<br/>
   <redirect src="erl://svc_variable:set_v2?numero_free&amp;codigoLista&amp;%23copy_of_set_piloto(2)&amp;LI08"/>
 </page>
 
+<page tag="copy_of_set_piloto" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;piloto&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23copy_of_req_consultarNumerosEnLista"/>
+</page>
+
 <page tag="copy_of_set_piloto(2)" ismenu="false" volatile="false">
   <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;piloto&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23copy_of_req_consultarNumerosEnLista(2)"/>
+</page>
+
+<page tag="copy_of_set_piloto(3)" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;piloto&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23req_agregarNumerosEnlista"/>
+</page>
+
+<page tag="copy_of_set_piloto(4)" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;piloto&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23copy_of_req_agregarNumerosEnlista"/>
 </page>
 
 <page tag="copy_of_set_piloto(5)" ismenu="false" volatile="false">
   <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;piloto&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23copy_of_req_consultarNumerosEnLista(3)"/>
 </page>
 
+<page tag="desc_en_alta_before_retry_error_request" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?DescEnAlta&amp;&amp;&amp;%23error_request_before_retry_alta"/>
+</page>
+
+<page tag="descenAlta_error_bef_retry" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?DescEnAlta&amp;&amp;&amp;%23erro_xml_no_retry"/>
+</page>
+
+<page tag="end" descr="end" ismenu="false" nav="end" volatile="false" count="true">
+ <title>end</title>
+El alta de tu Nro Free se realizo con exito. Ya cargaste todos tus Nros Free disponibles para esta lista.
+</page>
+
+<page tag="erro_xml_no_retry" ismenu="false" volatile="false" count="true">
+La operación no se pudo realizar. Verifica si el nro ya pertenece a tu lista de Nros Free y si tenés saldo suficiente.
+</page>
+
+<page tag="error_areacode" descr="error_areacode" ismenu="false" volatile="false" count="true">
+ <title>error_areacode</title>
+Recorda que el Nro Free que elijas tiene que tener tu mismo cod de area interurbano. Volve a ingresar tu nuevo Nro Free  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico">
+    <entry>
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
 <page tag="error_backend" descr="NumeroFree_Alta_ErrorServicioMuestraDescripcion" ismenu="false" volatile="false" count="true">
-<include src="erl://svc_variable:incl?numero_free&amp;descripcion"/>
+<include src="#incl_descripcion"/>
+</page>
+
+<page tag="error_msisdn" descr="error_msisdn" ismenu="false" volatile="false" count="true">
+ <title>error_msisdn</title>
+El Numero ingresado es invalido. Ingresa tu nuevo Nro Free Movistar, con cod de area, sin 0 ni 15  <form action="erl://svc_variable:set_v2?numero_free&amp;numeroTelefonico&amp;%23copy_of_redir_numeroTelefonico">
+    <entry>
+      <prompt></prompt>
+    </entry>
+  </form>
+
+</page>
+
+<page tag="error_request_before_retry_alta" ismenu="false" volatile="false" count="true">
+Se ha producido un error, intenta mas tarde.
+</page>
+
+<page tag="error_xml_after_retry" ismenu="false" volatile="false" count="true">
+Se ha producido un error, intenta mas tarde.
+</page>
+
+<page tag="get_msisdn" ismenu="false" volatile="false">
+  <redirect src="erl://svc_numero_free:get_msisdn?numero_free&amp;numero_list&amp;numeroList1&amp;length1&amp;%23copy_of_set_codigoLista"/>
+</page>
+
+<page tag="get_remaining_items" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_arithmetic:arithmetic?numero_free&amp;%24(numero_free.cantidadMaximaItems.)&amp;%24(numero_free.length2.)&amp;-&amp;remaining_items&amp;0&amp;%23cargar_numero&amp;%23plug-in%20err"/>
+</page>
+
+<page tag="id2" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_arithmetic:arithmetic?numero_free&amp;%24(numero_free.length2.)&amp;1&amp;%2B&amp;length2&amp;0&amp;%23copy_of_compare_length(2)&amp;%23plug-in%20err"/>
+</page>
+
+<page tag="id3" ismenu="false" volatile="false" count="true">
+Selecciona la lista en la que vas a dar de alta tu Nro Free:<br/>
+<a href="#set_codigoLista" key="1">Plan</a><br/>
+<a href="#copy_of_redir_info" key="2">Promo</a><br/>
+<a href="#copy_of_redir_info(2)" key="3">Comunidad Ampliada</a>
+</page>
+
+<page tag="id4" ismenu="false" volatile="false" count="true">
+Selecciona la lista en la que vas a dar de alta tu Nro Free:<br/>
+<a href="#set_codigoLista" key="1">Plan</a><br/>
+<a href="#copy_of_redir_info" key="2">Promo</a>
+</page>
+
+<page tag="id5" ismenu="false" volatile="false" count="true">
+Selecciona la lista en la que vas a dar de alta tu Nro Free:<br/>
+<a href="#set_codigoLista" key="1">Plan</a><br/>
+<a href="#copy_of_redir_info(2)" key="2">Comunidad Ampliada</a>
+</page>
+
+<page tag="id6" ismenu="false" volatile="false" count="true">
+Selecciona la lista en la que vas a dar de alta tu Nro Free:<br/>
+<a href="#copy_of_redir_info" key="1">Promo</a><br/>
+<a href="#copy_of_redir_info(2)" key="2">Comunidad Ampliada</a>
 </page>
 
 <page tag="id7" ismenu="false" volatile="false">
@@ -223,6 +534,38 @@ Selecciona:<br/>
 
 <page tag="incl_numeroTelefonico" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:incl?numero_free&amp;numeroTelefonico"/>
+</page>
+
+<page tag="incl_remaining_items" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:incl?numero_free&amp;remaining_items"/>
+</page>
+
+<page tag="inconsistency_plan" descr="inconsistency_plan" ismenu="false" nav="end" volatile="false" count="true">
+ <title>inconsistency_plan</title>
+La operación no se puede realizar. Comunicate al *611 para ser atendido por un representante
+</page>
+
+<page tag="limite_anis" descr="limite_anis" ismenu="false" volatile="false" count="true">
+ <title>limite_anis</title>
+Ya cargaste todos tus Nros Free disponibles para esta lista
+</page>
+
+<page tag="ok_agrega" descr="ok_agrega" ismenu="false" volatile="false" count="true">
+ <title>ok_agrega</title>
+El Nro Free fue dado de alta con éxito.<br/>
+<a href="#redir_info" key="1"> Dar de alta otro numero </a>
+</page>
+
+<page tag="ok_agrega2" descr="ok_agrega2" ismenu="false" volatile="false" count="true">
+ <title>ok_agrega2</title>
+El Nro Free fue dado de alta con exito.<br/>
+<a href="#redir_info" key="1"> Dar de alta otro numero</a>
+</page>
+
+<page tag="ok_agrega3" descr="ok_agrega" ismenu="false" volatile="false" count="true">
+ <title>ok_agrega</title>
+El Nro Free fue dado de alta con éxito.<br/>
+<a href="#redir_info" key="1"> Dar de alta otro numero</a>
 </page>
 
 <page tag="parse_data" ismenu="false" volatile="false">
@@ -241,8 +584,32 @@ El servicio no esta disponible en este momento. Por favor intenta mas tarde.
   <redirect src="erl://svc_numero_free:redir_info?numero_free&amp;list&amp;((LI05%20or%20LI06)%20and%20(LI08%20or%20LI09)%20and%20(LI03%20or%20LI04))=%23Alta_Nro_Free_Menu_Principal,((LI05%20or%20LI06)%20and%20(LI08%20or%20LI09))=%23Alta_Nro_Free_Menu_Principal_1,((LI05%20or%20LI06)%20and%20(LI03%20or%20LI04))=%23Alta_Nro_Free_Menu_Principal_2,((LI03%20or%20LI04)%20and%20(LI08%20or%20LI09))=%23Alta_Nro_Free_Menu_Principal_3,LI05%20and%20LI06=%23copy_of_redir_info(3),LI08%20and%20LI09=%23copy_of_redir_info,LI03%20and%20LI04=%23copy_of_redir_info(2),LI08=%23copy_of_set_codigoLista(7),LI09=%23copy_of_set_codigoLista(6),LI03=%23copy_of_set_codigoLista(5),LI04=%23copy_of_set_codigoLista(4),LI05=%23copy_of_set_codigoLista(2),LI06=%23copy_of_set_codigoLista(3),%3F=%23Error%20xml"/>
 </page>
 
+<page tag="redir_numeroTelefonico" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;numeroTelefonico&amp;contain&amp;%5E%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%5B0-9%5D%24=%23compare_prefix,%3F=%23error_msisdn"/>
+</page>
+
 <page tag="redir_st" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23redir_codigo,500=%23redir_codigo,%3F=%23Error%20xml"/>
+</page>
+
+<page tag="redir_st_1" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo,500=%23copy_of_redir_codigo,%3F=%23Error%20xml"/>
+</page>
+
+<page tag="redir_st_2" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(2),500=%23copy_of_redir_codigo(2),%3F=%23Error%20xml"/>
+</page>
+
+<page tag="redir_st_3" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(4),500=%23copy_of_redir_codigo(4),%3F=%23Error%20xml"/>
+</page>
+
+<page tag="redir_st_4" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(5),500=%23copy_of_redir_codigo(5),%3F=%23desc_en_alta_before_retry_error_request"/>
+</page>
+
+<page tag="redir_st_5" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(6),500=%23copy_of_redir_codigo(6),%3F=%23DescenAlta_error_request"/>
 </page>
 
 <page tag="redir_st_6" ismenu="false" volatile="false">
@@ -253,8 +620,28 @@ El servicio no esta disponible en este momento. Por favor intenta mas tarde.
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(7),500=%23copy_of_redir_codigo(7),%3F=%23Error%20xml"/>
 </page>
 
+<page tag="req_agregarNumerosEnlista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?agregarNumerosEnlista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_3,%3F=%23Error%20xml"/>
+</page>
+
+<page tag="req_consultarNumerosEnLista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_1,%3F=%23Error%20xml"/>
+</page>
+
 <page tag="set_cantidadMaximaItems" ismenu="false" volatile="false">
   <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;cantidadMaximaItems&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23compare_length"/>
+</page>
+
+<page tag="set_codigoLista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:set_v2?numero_free&amp;codigoLista&amp;%23set_piloto&amp;LI05"/>
+</page>
+
+<page tag="set_piloto" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;piloto&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23req_consultarNumerosEnLista"/>
+</page>
+
+<page tag="wait_before_retyr" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:pause?7&amp;%23copy_of_req_agregarNumerosEnlista(2)"/>
 </page>
 
 

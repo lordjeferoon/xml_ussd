@@ -6,7 +6,7 @@
 <pages descr="prepago_menu">
 
 <page ismenu="true" volatile="false" count="true">
-Ahora también SPOTIFY! Elegí Multiplicate y Packs con megas de REGALO p/Facebook, Instagram, Snapchat, Twitter, TikTok y Spotify!<br/>
+Conocé nuestros packs y Multiplicate con TODO! Además vienen con megas GRATIS para que disfrutes en tus redes sociales! No te los pierdas!<br/>
 <a href="#count_multiplicate">Multiplicate + Datos</a><br/>
 <a href="#Menu_Principal">Menu</a>
 </page>
@@ -22,20 +22,6 @@ Ahora también SPOTIFY! Elegí Multiplicate y Packs con megas de REGALO p/Facebo
 <a href="#portal_sva">Servicios</a>
 </page>
 
-<page tag="armatupack" ismenu="false" volatile="false" count="true">
-Gigas, minutos o mensajes, ARMÁ TU PACK como quieras desde la App! Más servicios, mayores descuentos! Marcá 1 y<br/>
- te enviamos un SMS s/costo p/descargarla<br/>
-<a href="#armatupackapp" key="1"> Descargar App</a>
-</page>
-
-<page tag="armatupackapp" ismenu="false" volatile="false">
-  <redirect src="erl://svc_sms:sms_mt?4762&amp;Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2Fctdr&amp;smsMT&amp;false&amp;%23id2&amp;%23id2&amp;SMSMT&amp;"/>
-</page>
-
-<page tag="change_consulta_de_saldo" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fconsulta_de_saldo"/>
-</page>
-
 <page tag="change_medios_recarga" ismenu="false" volatile="false">
  <title>change_medios_recarga</title>
   <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fmenu_medios_de_recarga"/>
@@ -46,15 +32,11 @@ Gigas, minutos o mensajes, ARMÁ TU PACK como quieras desde la App! Más servici
 </page>
 
 <page tag="change_pasame_saldo" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fpasame_saldo_20180903"/>
+  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fpasame_saldo_20221108"/>
 </page>
 
 <page tag="change_recarga_sos" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Frecarga_sos_evolution"/>
-</page>
-
-<page tag="change_to_las_lenias" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Flas_lenias"/>
+  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Frecarga_sos_evolution_20240418"/>
 </page>
 
 <page tag="change_to_recharge" ismenu="false" volatile="false">
@@ -67,10 +49,6 @@ Gigas, minutos o mensajes, ARMÁ TU PACK como quieras desde la App! Más servici
 
 <page tag="count_consumos_oferta" ismenu="false" volatile="false">
   <redirect src="erl://svc_util_telefonica_argentina:event_counter?oferta_prepago&amp;&amp;&amp;%23go_to_oferta_prepago"/>
-</page>
-
-<page tag="count_event_las_lenias" ismenu="false" volatile="false">
-  <redirect src="erl://svc_util_telefonica_argentina:event_counter?las_lenias&amp;&amp;&amp;%23change_to_las_lenias"/>
 </page>
 
 <page tag="count_event_menumedios" ismenu="false" volatile="false">
@@ -87,15 +65,6 @@ Gigas, minutos o mensajes, ARMÁ TU PACK como quieras desde la App! Más servici
   <redirect src="erl://svc_util_telefonica_argentina:event_counter?acceso_menu_recarga&amp;&amp;&amp;%23change_to_recharge"/>
 </page>
 
-<page tag="count_event_menutonos" ismenu="false" volatile="false">
- <title>count_event_menutonos</title>
-  <redirect src="erl://svc_util_telefonica_argentina:event_counter?acceso_menu_tonos_espera&amp;&amp;&amp;%23tonos_espera"/>
-</page>
-
-<page tag="count_movistar_free_music" ismenu="false" volatile="false">
-  <redirect src="erl://svc_util_telefonica_argentina:event_counter?free_music&amp;&amp;&amp;%23movistar_free_music"/>
-</page>
-
 <page tag="count_multiplicate" ismenu="false" volatile="false">
   <redirect src="erl://svc_util_telefonica_argentina:event_counter?acceso_multiplicate&amp;&amp;&amp;%23go_to_multiplicate"/>
 </page>
@@ -104,13 +73,8 @@ Gigas, minutos o mensajes, ARMÁ TU PACK como quieras desde la App! Más servici
   <redirect src="erl://svc_util_telefonica_argentina:event_counter?acceso_num_free&amp;&amp;&amp;%23goto_num_free"/>
 </page>
 
-<page tag="event_counter_voz_a_texto" ismenu="false" volatile="false">
- <title>event_counter_voz_a_texto</title>
-  <redirect src="erl://svc_util_telefonica_argentina:event_counter?acceso_voz_a_texto&amp;&amp;&amp;%23voz_a_texto"/>
-</page>
-
 <page tag="go_to_multiplicate" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fmultiplicate_20180903"/>
+  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fmultiplicate_20240417"/>
 </page>
 
 <page tag="go_to_nominacion" ismenu="false" volatile="false">
@@ -125,24 +89,12 @@ Gigas, minutos o mensajes, ARMÁ TU PACK como quieras desde la App! Más servici
   <redirect src="erl://svc_core:change_service?..%2Fnumeros_free%2Fhome_numero_free"/>
 </page>
 
-<page tag="id2" ismenu="false" volatile="false" count="true">
-Recibiras un SMS para que puedas descargar la App Mi Movistar
-</page>
-
-<page tag="ir_DetallesPlanAumentos" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Fdetalle_plan%2Fdetalleplan_aumento_prepago"/>
-</page>
-
 <page tag="ir_Terabox" ismenu="false" volatile="false">
   <redirect src="erl://svc_core:change_service?..%2Ftma_services%2FTerabox"/>
 </page>
 
-<page tag="ir_compra_paquetes" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fcompra_de_paquetes_20210722"/>
-</page>
-
 <page tag="ir_compra_paquetes2" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fcompra_de_paquetes_20210722"/>
+  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fcompra_de_paquetes_20240417"/>
 </page>
 
 <page tag="ir_config_APN" ismenu="false" volatile="false">
@@ -161,11 +113,6 @@ Recibiras un SMS para que puedas descargar la App Mi Movistar
   <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fvoz_a_texto"/>
 </page>
 
-<page tag="movistar_free_music" ismenu="false" volatile="false">
- <title>voz_a_texto</title>
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fmovistar_free_music"/>
-</page>
-
 <page tag="portal_sva" descr="MKT_PM_Servicios" ismenu="false" volatile="false" count="true">
 Servicios Digitales<br/>
 <a href="#ir_voz_a_texto">Voz a Texto</a><br/>
@@ -180,15 +127,6 @@ Servicios Digitales<br/>
 <a href="#count_event_menurecharge">Recarga con Tarjeta Movistar</a><br/>
 <a href="#count_event_menupasamesaldo">Pasame saldo</a><br/>
 <a href="#count_event_menumedios">Medios de recargas</a>
-</page>
-
-<page tag="tonos_espera" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fringtones"/>
-</page>
-
-<page tag="voz_a_texto" ismenu="false" volatile="false">
- <title>voz_a_texto</title>
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fvoz_a_texto"/>
 </page>
 
 

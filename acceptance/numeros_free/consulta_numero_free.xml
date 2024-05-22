@@ -6,7 +6,7 @@
 <pages descr="consulta_numero_free">
 
 <page ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarListasDisponibles&amp;xml_generic&amp;numero_free&amp;ok=%23redir_codigo,%3F=%23Error_xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarListasDisponibles&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st,%3F=%23Error_xml"/>
 </page>
 
 <page tag="Comunidad_Ampliada" descr="NumeroFree_Consulta_MenuPrincipalComunidadAmpliada" ismenu="false" volatile="false" count="true">
@@ -40,19 +40,42 @@ Consulta los Nros Free que tenes en tu lista, selecciona:<br/>
 <a href="#copy_of_redir_info(2)" key="2">Comunidad Ampliada</a>
 </page>
 
+<page tag="DesconConsultaPlan" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?DesconConsultaPlan&amp;&amp;&amp;%23inconsistency_plan"/>
+</page>
+
+<page tag="Error xml" descr="Error xml" ismenu="false" nav="end" volatile="false" count="true">
+ <title>Error xml</title>
+Se ha producido un error, intenta mas tarde.
+</page>
+
 <page tag="Error_xml" descr="NumeroFree_Consulta_ErrorServicio" ismenu="false" nav="end" volatile="false" count="true">
 El servicio no esta disponible en este momento. Por favor intenta mas tarde.
 </page>
 
 <page tag="Lista_Promo" descr="NumeroFree_Consulta_MuestraListaOpcionPlan" ismenu="false" volatile="false" count="true">
 Tus Números son: <br/>
-<include src="erl://svc_variable:incl?numero_free&amp;numeroList"/>
+<include src="#copy_of_incl_numeroList"/>
 </page>
 
 <page tag="Lista_promo" descr="NumeroFree_Consulta_MuestraListaOpcionPromoNoVigente" ismenu="false" volatile="false" count="true">
 Tus Nros Free son: <br/>
-<include src="erl://svc_variable:incl?numero_free&amp;numeroList"/><br/>
+<include src="#copy_of_incl_numeroList"/><br/>
 No tenes ninguna Promo Vigente.
+</page>
+
+<page tag="Menu2" descr="Menu2" ismenu="false" volatile="false" count="true">
+ <title>Menu2</title>
+Selecciona:<br/>
+<a href="#copy_of_set_codigoLista(2)" key="1"> VOZ</a><br/>
+<a href="#copy_of_set_codigoLista(3)" key="2"> SMS</a>
+</page>
+
+<page tag="Menu3" descr="Menu3" ismenu="false" volatile="false" count="true">
+ <title>Menu3</title>
+Selecciona:<br/>
+<a href="#copy_of_set_codigoLista(4)" key="1"> VOZ</a><br/>
+<a href="#copy_of_set_codigoLista(5)" key="2"> SMS</a>
 </page>
 
 <page tag="Plan" descr="NumeroFree_Consulta_MenuPrincipalPlan" ismenu="false" volatile="false" count="true">
@@ -71,8 +94,20 @@ Selecciona:<br/>
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;YY&amp;length&amp;0=%23Lista_promo,%3F=%23set_fechaCaducidadBono"/>
 </page>
 
+<page tag="check_if_all_empty" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23exitoConsultaPlan,20000500=%23error_backend"/>
+</page>
+
+<page tag="compare_numeroList" ismenu="false" volatile="false">
+  <redirect src="erl://svc_numero_free:compare_msisdn?numero_free&amp;numeroList1&amp;numeroList2&amp;%23check_if_all_empty&amp;%23DesconConsultaPlan"/>
+</page>
+
 <page tag="consultaSinLista" ismenu="false" volatile="false">
   <redirect src="erl://svc_util_telefonica_argentina:event_counter?ConsultaSinLista&amp;&amp;&amp;%23sin_nro_free"/>
+</page>
+
+<page tag="copy_of_get_msisdn" ismenu="false" volatile="false">
+  <redirect src="erl://svc_numero_free:get_msisdn?numero_free&amp;numero_list&amp;numeroList2&amp;length2&amp;%23compare_numeroList"/>
 </page>
 
 <page tag="copy_of_get_msisdn(2)" ismenu="false" volatile="false">
@@ -85,6 +120,27 @@ Selecciona:<br/>
 
 <page tag="copy_of_incl_numeroList" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:incl?numero_free&amp;numeroList"/>
+</page>
+
+<page tag="copy_of_list_promo" descr="list_promo" ismenu="false" volatile="false" count="true">
+ <title>list_promo</title>
+Tus Nros Free son: <br/>
+<include src="#copy_of_incl_numeroList"/><br/>
+No tenes ninguna Promo Vigente.
+</page>
+
+<page tag="copy_of_list_promo(2)" descr="list_promo" ismenu="false" volatile="false" count="true">
+ <title>list_promo</title>
+Tus Números son: <br/>
+<include src="#copy_of_incl_numeroList"/>
+</page>
+
+<page tag="copy_of_redir_codigo" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23get_msisdn,20000500=%23get_msisdn,%3F=%23error_backend"/>
+</page>
+
+<page tag="copy_of_redir_codigo(2)" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;codigo&amp;equal&amp;0=%23copy_of_get_msisdn,20000500=%23copy_of_get_msisdn,%3F=%23error_backend"/>
 </page>
 
 <page tag="copy_of_redir_codigo(3)" ismenu="false" volatile="false">
@@ -111,12 +167,20 @@ Selecciona:<br/>
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(4),500=%23copy_of_redir_codigo(4),%3F=%23Error_xml"/>
 </page>
 
+<page tag="copy_of_req_consultarNumerosEnLista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_2,%3F=%23Error%20xml"/>
+</page>
+
 <page tag="copy_of_req_consultarNumerosEnLista(2)" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;ok=%23copy_of_redir_codigo(3),%3F=%23Error_xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_3,%3F=%23Error_xml"/>
 </page>
 
 <page tag="copy_of_req_consultarNumerosEnLista(3)" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;ok=%23copy_of_redir_codigo(4),%3F=%23Error_xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23copy_of_redir_st_3,%3F=%23Error_xml"/>
+</page>
+
+<page tag="copy_of_set_codigoLista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:set_v2?numero_free&amp;codigoLista&amp;%23copy_of_set_piloto&amp;LI06"/>
 </page>
 
 <page tag="copy_of_set_codigoLista(2)" ismenu="false" volatile="false">
@@ -143,6 +207,10 @@ Selecciona:<br/>
   <redirect src="erl://svc_variable:set_v2?numero_free&amp;codigoLista&amp;%23copy_of_set_piloto(3)&amp;LI03"/>
 </page>
 
+<page tag="copy_of_set_piloto" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;piloto&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23copy_of_req_consultarNumerosEnLista"/>
+</page>
+
 <page tag="copy_of_set_piloto(2)" ismenu="false" volatile="false">
   <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;piloto&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23init_fechaCaducidadBono"/>
 </page>
@@ -152,7 +220,11 @@ Selecciona:<br/>
 </page>
 
 <page tag="error_backend" descr="NumeroFree_Consulta_ErrorServicioMuestraDescripcion" ismenu="false" volatile="false" count="true">
-<include src="erl://svc_variable:incl?numero_free&amp;descripcion"/>
+<include src="#incl_descripcion"/>
+</page>
+
+<page tag="exitoConsultaPlan" ismenu="false" volatile="false">
+  <redirect src="erl://svc_util_telefonica_argentina:event_counter?ExitoConsultaPlan&amp;&amp;&amp;%23list_plan"/>
 </page>
 
 <page tag="exitoconsultaPromo" ismenu="false" volatile="false">
@@ -163,6 +235,35 @@ Selecciona:<br/>
   <redirect src="dynerl://svc_variable:extract?%24(numero_free.fechaCaducidadBono.)&amp;%5C(.%2A%5C)-%5C(.%2A%5C)-%5C(.%2A%5C)T&amp;numero_free&amp;YY%2CMM%2CDD&amp;%23check_fechaCaducidadBono"/>
 </page>
 
+<page tag="get_msisdn" ismenu="false" volatile="false">
+  <redirect src="erl://svc_numero_free:get_msisdn?numero_free&amp;numero_list&amp;numeroList1&amp;length1&amp;%23copy_of_set_codigoLista"/>
+</page>
+
+<page tag="id1" ismenu="false" volatile="false" count="true">
+Consulta los Nros Free que tenes en tu lista, selecciona:<br/>
+<a href="#set_codigoLista" key="1">Plan</a><br/>
+<a href="#copy_of_redir_info" key="2">Promo</a><br/>
+<a href="#copy_of_redir_info(2)" key="3">Comunidad Ampliada</a>
+</page>
+
+<page tag="id2" ismenu="false" volatile="false" count="true">
+Consulta los Nros Free que tenes en tu lista, selecciona:<br/>
+<a href="#set_codigoLista" key="1">Plan</a><br/>
+<a href="#copy_of_redir_info" key="2">Promo</a>
+</page>
+
+<page tag="id3" ismenu="false" volatile="false" count="true">
+Consulta los Nros Free que tenes en tu lista, selecciona:<br/>
+<a href="#set_codigoLista" key="1">Plan</a><br/>
+<a href="#copy_of_redir_info(2)" key="2">Comunidad Ampliada</a>
+</page>
+
+<page tag="id4" ismenu="false" volatile="false" count="true">
+Consulta los Nros Free que tenes en tu lista, selecciona:<br/>
+<a href="#copy_of_redir_info" key="1">Promo</a><br/>
+<a href="#copy_of_redir_info(2)" key="2">Comunidad Ampliada</a>
+</page>
+
 <page tag="incl_descripcion" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:incl?numero_free&amp;descripcion"/>
 </page>
@@ -171,14 +272,40 @@ Selecciona:<br/>
   <redirect src="erl://svc_variable:incl?numero_free&amp;fechaCaducidadBono"/>
 </page>
 
+<page tag="incl_numeroList" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:incl?numero_free&amp;numeroList1"/>
+</page>
+
+<page tag="inconsistency_plan" descr="inconsistency_plan" ismenu="false" nav="end" volatile="false" count="true">
+ <title>inconsistency_plan</title>
+La operación no se puede realizar. Comunicate al *611 para ser atendido por un representante
+</page>
+
 <page tag="init_fechaCaducidadBono" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:set_v2?numero_free&amp;fechaCaducidadBono&amp;%23copy_of_req_consultarNumerosEnLista(2)&amp;"/>
 </page>
 
+<page tag="list_plan" descr="list_plan" ismenu="false" volatile="false" count="true">
+ <title>list_plan</title>
+Tus Numeros Free son:<br/>
+<include src="#incl_numeroList"/>
+</page>
+
+<page tag="list_promo" descr="list_promo" ismenu="false" volatile="false" count="true">
+ <title>list_promo</title>
+Tus Nros Free son: <br/>
+<include src="#copy_of_incl_numeroList"/><br/>
+Esta promo tiene vigencia hasta el <include src="#incl_fechaCaducidadBono"/>
+</page>
+
 <page tag="lista_promo" descr="NumeroFree_Consulta_MuestraListaOpcionPromoVigente" ismenu="false" volatile="false" count="true">
 Tus Nros Free son: <br/>
-<include src="erl://svc_variable:incl?numero_free&amp;numeroList"/><br/>
+<include src="#copy_of_incl_numeroList"/><br/>
 Esta promo tiene vigencia hasta el <include src="#incl_fechaCaducidadBono"/>
+</page>
+
+<page tag="no_nree_free" ismenu="false" volatile="false" count="true">
+Usted no tiene Nros Free
 </page>
 
 <page tag="parse_data" ismenu="false" volatile="false">
@@ -197,16 +324,36 @@ Esta promo tiene vigencia hasta el <include src="#incl_fechaCaducidadBono"/>
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23redir_codigo,500=%23redir_codigo,%3F=%23Error_xml"/>
 </page>
 
+<page tag="redir_st_1" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo,500=%23copy_of_redir_codigo,%3F=%23Error%20xml"/>
+</page>
+
+<page tag="redir_st_2" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(2),500=%23copy_of_redir_codigo(2),%3F=%23Error%20xml"/>
+</page>
+
 <page tag="redir_st_3" ismenu="false" volatile="false">
   <redirect src="erl://svc_variable:redir_by_variable?numero_free&amp;st&amp;equal&amp;200=%23copy_of_redir_codigo(3),500=%23copy_of_redir_codigo(3),%3F=%23Error_xml"/>
+</page>
+
+<page tag="req_consultarNumerosEnLista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_1,%3F=%23Error%20xml"/>
 </page>
 
 <page tag="set_cantidadMaximaItems" ismenu="false" volatile="false">
   <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;cantidadMaximaItems&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23extract_fechaCaducidadBono"/>
 </page>
 
+<page tag="set_codigoLista" ismenu="false" volatile="false">
+  <redirect src="erl://svc_variable:set_v2?numero_free&amp;codigoLista&amp;%23set_piloto&amp;LI05"/>
+</page>
+
 <page tag="set_fechaCaducidadBono" ismenu="false" volatile="false">
   <redirect src="dynerl://svc_variable:set_v2?numero_free&amp;fechaCaducidadBono&amp;%23lista_promo&amp;%24(numero_free.DD.-)%24(numero_free.MM.-)%24(numero_free.YY.)"/>
+</page>
+
+<page tag="set_piloto" ismenu="false" volatile="false">
+  <redirect src="dynerl://svc_numero_free:set_info?numero_free&amp;piloto&amp;%24(numero_free.codigoLista.)&amp;list&amp;%23req_consultarNumerosEnLista"/>
 </page>
 
 <page tag="sin_nro_free" descr="NumeroFree_Consulta_SinLista" ismenu="false" volatile="false" count="true">

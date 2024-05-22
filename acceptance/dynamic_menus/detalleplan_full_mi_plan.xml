@@ -197,7 +197,7 @@ Detalles de Tarifas<br/>
 </page>
 
 <page tag="copy_of_show_includio_items" descr="Full_DetallePlan_MuestraIncluidos" ismenu="false" volatile="false" count="true">
-Tu Abono mensual: <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Abono"/><br/>
+Tu Abono mensual: <include src="#incl_Abono"/><br/>
 <include src="#incl_incudio_items"/><br/>
 <a href="#update_includio_list" key="1"> ver mas</a>
 </page>
@@ -450,14 +450,14 @@ Para conocer el detalle de tu plan escribinos a: consultassobremilinea.ar@telefo
 </page>
 
 <page tag="init_page2" descr="MKT_CMyCVMyCEMyCMAyCVMA_DetallePlan" ismenu="false" hist="dohist" volatile="false" count="true">
-Tu PLAN <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Descripcion"/> es de <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Abono"/>/mes.<br/>
+Tu PLAN <include src="#incl_desc"/> es de <include src="#incl_Abono"/>/mes.<br/>
 <a href="#set_include_query" key="1"> Que incluye tu Plan</a><br/>
 <a href="#Tarifas" key="2"> Detalle de Tarifas</a><br/>
 <a href="#set_mas_info_query" key="3"> + Info</a>
 </page>
 
 <page tag="init_page4" descr="MKT_CMyCVMyCEMyCMAyCVMA_DetallePlan" ismenu="false" hist="dohist" volatile="false" count="true">
-Tu PLAN <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Descripcion"/> es de <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Abono"/>/mes.<br/>
+Tu PLAN <include src="#incl_desc"/> es de <include src="#incl_Abono"/>/mes.<br/>
 <a href="#set_include_query" key="1"> Que incluye tu Plan</a><br/>
 <a href="#redir_by_benefit" key="2"> Beneficios Extras</a><br/>
 <a href="#Tarifas" key="3"> Detalle de Tarifas</a><br/>
@@ -469,7 +469,7 @@ Para conocer el detalle de tu plan escribinos a: consultassobremilinea.ar@telefo
 </page>
 
 <page tag="mas_info" descr="Full_DetallePlan_MuestraMasInfo" ismenu="false" volatile="false" count="true">
-Para ver mas info ingresa a mov.is/cDyb<br/>
+Para ver mas info ingresa a mov.is/vgnp<br/>
 <a href="#Impuestos" key="1"> Impuestos</a><br/>
 <a href="#redir_by_LeyendaGeneral" key="2"> Leyenda general</a>
 </page>
@@ -638,7 +638,7 @@ El servicio no está disponible temporalmente. Por favor intenta mas tarde.
 </page>
 
 <page tag="show_includio_items1" descr="Full_DetallePlan_MuestraIncluidos" ismenu="false" volatile="false" count="true">
-Tu Abono mensual: <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Abono"/><br/>
+Tu Abono mensual: <include src="#incl_Abono"/><br/>
 <include src="#incl_incudio_items"/>
 </page>
 

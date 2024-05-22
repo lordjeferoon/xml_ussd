@@ -6,7 +6,7 @@
 <pages descr="recarga_tarjeta">
 
 <page descr="RecargaSaldo_MenuPrincipal" ismenu="false" volatile="false" count="true">
-Todas tus recargas vienen con regalo desde $50!<br/>
+Todas tus recargas vienen con regalo desde $100!<br/>
 <a href="#llamo_a_quema_pin" key="1">Recarga tu Movistar</a><br/>
 <a href="#nro_cargarle_saldo" key="2">Recargar otro Movistar</a>
 </page>

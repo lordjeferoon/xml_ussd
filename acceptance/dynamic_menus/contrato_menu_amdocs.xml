@@ -12,7 +12,7 @@ Gestioná tu Movistar y mucho más en la APP Mi Movistar<br/>
 </page>
 
 <page tag="DescargaApp" ismenu="false" volatile="false">
-  <redirect src="erl://svc_sms:sms_mt?4762&amp;Este%20es%20el%20link!%20Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2Fb64N%20%20para%20comprar%20Packs%20de%20GIGAS%20Exclusivos!&amp;smsMT&amp;false&amp;%23descargaappmsg&amp;%23descargaappmsg&amp;SMSMT&amp;"/>
+  <redirect src="erl://svc_sms:sms_mt?4762&amp;Este%20es%20el%20link!%20Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2FvgHh%20para%20comprar%20Packs%20de%20GIGAS%20Exclusivos!&amp;smsMT&amp;false&amp;%23descargaappmsg&amp;%23descargaappmsg&amp;SMSMT&amp;"/>
 </page>
 
 <page tag="FacturaAPagaryVenc" descr="MKT_CMA_FacturaAPagarYVencimiento" ismenu="true" volatile="false" count="true">
@@ -79,24 +79,12 @@ Recibirás un SMS para que puedas descargar la APP Mi Movistar
 Recibiras un SMS para que puedas descargar la APP Mi Movistar
 </page>
 
-<page tag="ir_DetallesPlanAumento" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Fdetalle_plan%2Fdetalleplan_aumento_full"/>
-</page>
-
-<page tag="ir_Escudo_Movistar" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2FSeguridad_Multidispositivo"/>
-</page>
-
 <page tag="ir_Terabox" ismenu="false" volatile="false">
   <redirect src="erl://svc_core:change_service?..%2Ftma_services%2FTerabox"/>
 </page>
 
-<page tag="ir_color_sms" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fcolor_sms"/>
-</page>
-
 <page tag="ir_compradepaquetescontrato" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fcompra_de_paquetes_contrato"/>
+  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fcompra_de_paquetes_contratoV3"/>
 </page>
 
 <page tag="ir_config_APN" ismenu="false" volatile="false">
@@ -107,20 +95,8 @@ Recibiras un SMS para que puedas descargar la APP Mi Movistar
   <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Ffutbol_movistar"/>
 </page>
 
-<page tag="ir_pull_init_notificador" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fpull_init_notificador"/>
-</page>
-
 <page tag="ir_ringtones" ismenu="false" volatile="false">
   <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fringtones"/>
-</page>
-
-<page tag="ir_sms_plus" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fsms_plus"/>
-</page>
-
-<page tag="ir_sms_plus_full" ismenu="false" volatile="false">
-  <redirect src="erl://svc_core:change_service?..%2Ftma_services%2Fsms_plusfull"/>
 </page>
 
 <page tag="ir_voz_a_texto" ismenu="false" volatile="false">
@@ -151,15 +127,10 @@ En la App Mi Movistar podes cargar saldo! Marca 1 y te enviamos un SMS sin costo
 <a href="#count_event_menucargamesaldo" key="2"> Cargame Saldo</a>
 </page>
 
-<page tag="menu_sms_plus" ismenu="false" volatile="false" count="true">
-<a href="#ir_sms_plus">SMS Plus basico</a><br/>
-<a href="#ir_sms_plus_full">SMS Plus full</a>
-</page>
-
 <page tag="old_start" descr="MKT_ContratoMenuAmdocs" ismenu="true" volatile="false" count="true">
+<a href="#ir_compradepaquetescontrato">Packs de GIGAS</a><br/>
 <a href="#menu1">Factura a pagar y vencimiento</a><br/>
 <a href="#menu2">Mi plan</a><br/>
-<a href="#ir_compradepaquetescontrato">Packs de GIGAS</a><br/>
 <a href="#menu3">Servicios</a><br/>
 <a href="#menu4">Cargame Saldo</a>
 </page>
@@ -174,7 +145,7 @@ Servicios Digitales<br/>
 </page>
 
 <page tag="sndsms" ismenu="false" volatile="false">
-  <redirect src="erl://svc_sms:sms_mt?4762&amp;Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2FcDyb&amp;smsMT&amp;false&amp;%23id1&amp;%23id1&amp;SMSMT&amp;"/>
+  <redirect src="erl://svc_sms:sms_mt?4762&amp;Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2Fvgnp&amp;smsMT&amp;false&amp;%23id1&amp;%23id1&amp;SMSMT&amp;"/>
 </page>
 
 

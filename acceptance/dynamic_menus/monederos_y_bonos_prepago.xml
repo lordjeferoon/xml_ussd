@@ -183,7 +183,7 @@ Consulta gratis tus <include src="#incloptionstr"/> disponibles desde la App Mi 
 </page>
 
 <page tag="enviarsmsapp" ismenu="false" volatile="false">
-  <redirect src="erl://svc_sms:sms_mt?4762&amp;Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2Fctdr&amp;smsMT&amp;false&amp;%23id1&amp;%23id1&amp;SMSMT&amp;"/>
+  <redirect src="erl://svc_sms:sms_mt?4762&amp;Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2FwiRM&amp;smsMT&amp;false&amp;%23id1&amp;%23id1&amp;SMSMT&amp;"/>
 </page>
 
 <page tag="errorsvagw" ismenu="false" nav="stop" volatile="false" count="true">
@@ -360,7 +360,7 @@ Tu saldo total es $<include src="#id4"/><br/>
 </page>
 
 <page tag="smspre" ismenu="false" volatile="false">
-  <redirect src="erl://svc_sms:sms_mt?4762&amp;Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2Fctdr&amp;smsMT&amp;false&amp;%23id2&amp;%23id2&amp;SMSMT&amp;"/>
+  <redirect src="erl://svc_sms:sms_mt?4762&amp;Descarga%20la%20App%20Mi%20Movistar%20desde%20aca%20mov.is%2FwiRM&amp;smsMT&amp;false&amp;%23id2&amp;%23id2&amp;SMSMT&amp;"/>
 </page>
 
 <page tag="status_error" descr="Prepago_MonederosYBonos_SinSaldo" ismenu="false" volatile="false" count="true">

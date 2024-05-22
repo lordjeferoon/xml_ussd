@@ -102,8 +102,9 @@ Por favor, envianos nuevamente tus datos personales ya que los datos enviados so
 </page>
 
 <page tag="input_doc_number" descr="MKT_PMyPVM_Nominacion" ismenu="false" volatile="false" count="true">
-Ingresa tu DNI sin espacios ni puntos. Ejemplo: 12345678<br/>
-Con Pasaporte extranjero envía #NOMI por mensaje privado en Facebook o Twitter a Movistar Argentina  <form action="erl://svc_variable:set_v2?nomination&amp;document_number&amp;%23check_doc_number">
+Ingresa tu DNI sin espacios ni puntos.<br/>
+Ejemplo: 12345678<br/>
+Con pasaporte extranjero ingresa en WhatsApp http://mov.is/b2W3o y activa tu chip Prepago Turista.  <form action="erl://svc_variable:set_v2?nomination&amp;document_number&amp;%23check_doc_number">
     <entry kind="digits">
       <prompt></prompt>
     </entry>
