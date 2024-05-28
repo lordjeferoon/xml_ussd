@@ -6,7 +6,7 @@
 <pages descr="consulta_numero_free">
 
 <page ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarListasDisponibles&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st,%3F=%23Error_xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarListasDisponibles&amp;xml_generic&amp;numero_free&amp;ok=%23redir_st,%3F=%23Error_xml"/>
 </page>
 
 <page tag="Comunidad_Ampliada" descr="NumeroFree_Consulta_MenuPrincipalComunidadAmpliada" ismenu="false" volatile="false" count="true">
@@ -55,12 +55,12 @@ El servicio no esta disponible en este momento. Por favor intenta mas tarde.
 
 <page tag="Lista_Promo" descr="NumeroFree_Consulta_MuestraListaOpcionPlan" ismenu="false" volatile="false" count="true">
 Tus Números son: <br/>
-<include src="#copy_of_incl_numeroList"/>
+<include src="erl://svc_variable:incl?numero_free&amp;numeroList"/>
 </page>
 
 <page tag="Lista_promo" descr="NumeroFree_Consulta_MuestraListaOpcionPromoNoVigente" ismenu="false" volatile="false" count="true">
 Tus Nros Free son: <br/>
-<include src="#copy_of_incl_numeroList"/><br/>
+<include src="erl://svc_variable:incl?numero_free&amp;numeroList"/><br/>
 No tenes ninguna Promo Vigente.
 </page>
 
@@ -125,14 +125,14 @@ Selecciona:<br/>
 <page tag="copy_of_list_promo" descr="list_promo" ismenu="false" volatile="false" count="true">
  <title>list_promo</title>
 Tus Nros Free son: <br/>
-<include src="#copy_of_incl_numeroList"/><br/>
+<include src="erl://svc_variable:incl?numero_free&amp;numeroList"/><br/>
 No tenes ninguna Promo Vigente.
 </page>
 
 <page tag="copy_of_list_promo(2)" descr="list_promo" ismenu="false" volatile="false" count="true">
  <title>list_promo</title>
 Tus Números son: <br/>
-<include src="#copy_of_incl_numeroList"/>
+<include src="erl://svc_variable:incl?numero_free&amp;numeroList"/>
 </page>
 
 <page tag="copy_of_redir_codigo" ismenu="false" volatile="false">
@@ -168,15 +168,15 @@ Tus Números son: <br/>
 </page>
 
 <page tag="copy_of_req_consultarNumerosEnLista" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_2,%3F=%23Error%20xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;ok=%23redir_st_2,%3F=%23Error%20xml"/>
 </page>
 
 <page tag="copy_of_req_consultarNumerosEnLista(2)" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_3,%3F=%23Error_xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;ok=%23redir_st_3,%3F=%23Error_xml"/>
 </page>
 
 <page tag="copy_of_req_consultarNumerosEnLista(3)" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;25000&amp;numero_free&amp;st&amp;msg&amp;ok=%23copy_of_redir_st_3,%3F=%23Error_xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;ok=%23copy_of_redir_st_3,%3F=%23Error_xml"/>
 </page>
 
 <page tag="copy_of_set_codigoLista" ismenu="false" volatile="false">
@@ -220,7 +220,7 @@ Tus Números son: <br/>
 </page>
 
 <page tag="error_backend" descr="NumeroFree_Consulta_ErrorServicioMuestraDescripcion" ismenu="false" volatile="false" count="true">
-<include src="#incl_descripcion"/>
+<include src="erl://svc_variable:incl?numero_free&amp;descripcion"/>
 </page>
 
 <page tag="exitoConsultaPlan" ismenu="false" volatile="false">
@@ -288,20 +288,20 @@ La operación no se puede realizar. Comunicate al *611 para ser atendido por un 
 <page tag="list_plan" descr="list_plan" ismenu="false" volatile="false" count="true">
  <title>list_plan</title>
 Tus Numeros Free son:<br/>
-<include src="#incl_numeroList"/>
+<include src="erl://svc_variable:incl?numero_free&amp;numeroList1"/>
 </page>
 
 <page tag="list_promo" descr="list_promo" ismenu="false" volatile="false" count="true">
  <title>list_promo</title>
 Tus Nros Free son: <br/>
-<include src="#copy_of_incl_numeroList"/><br/>
-Esta promo tiene vigencia hasta el <include src="#incl_fechaCaducidadBono"/>
+<include src="erl://svc_variable:incl?numero_free&amp;numeroList"/><br/>
+Esta promo tiene vigencia hasta el <include src="erl://svc_variable:incl?numero_free&amp;fechaCaducidadBono"/>
 </page>
 
 <page tag="lista_promo" descr="NumeroFree_Consulta_MuestraListaOpcionPromoVigente" ismenu="false" volatile="false" count="true">
 Tus Nros Free son: <br/>
-<include src="#copy_of_incl_numeroList"/><br/>
-Esta promo tiene vigencia hasta el <include src="#incl_fechaCaducidadBono"/>
+<include src="erl://svc_variable:incl?numero_free&amp;numeroList"/><br/>
+Esta promo tiene vigencia hasta el <include src="erl://svc_variable:incl?numero_free&amp;fechaCaducidadBono"/>
 </page>
 
 <page tag="no_nree_free" ismenu="false" volatile="false" count="true">
@@ -337,7 +337,7 @@ Usted no tiene Nros Free
 </page>
 
 <page tag="req_consultarNumerosEnLista" ismenu="false" volatile="false">
-  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;%2Fnrosfrecuentes%2FNrosFrecuentesService&amp;numero_free&amp;3000&amp;numero_free&amp;st&amp;msg&amp;ok=%23redir_st_1,%3F=%23Error%20xml"/>
+  <redirect src="erl://svc_xml_generic_telefonica_argentina:request?consultarNumerosEnLista&amp;xml_generic&amp;numero_free&amp;ok=%23redir_st_1,%3F=%23Error%20xml"/>
 </page>
 
 <page tag="set_cantidadMaximaItems" ismenu="false" volatile="false">

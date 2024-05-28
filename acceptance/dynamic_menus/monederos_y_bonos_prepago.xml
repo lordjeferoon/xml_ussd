@@ -80,17 +80,17 @@ Selecciona la opcion deseada para ver mas detalle de tus packs:<br/>
 </page>
 
 <page tag="copy_of_monederos_display" descr="Prepago_MonederosYBonos_MuestraSaldoABONO" ismenu="false" volatile="false" count="true">
-Tu saldo de abono mensual disponible es de $<include src="#balance_info"/> y vence el <include src="#expirationDate_info"/>. Consultalo gratis dde la AppMiMovistar. Marca 1 y te enviamos un SMS gratis p/descargarla<br/>
+Tu saldo de abono mensual disponible es de $<include src="erl://svc_variable:incl?monederos&amp;balanceInfo"/> y vence el <include src="erl://svc_variable:incl?monederos&amp;expirationDateInfo"/>. Consultalo gratis dde la AppMiMovistar. Marca 1 y te enviamos un SMS gratis p/descargarla<br/>
 <a href="#enviarsmsapp" key="1"> Descargar App</a>
 </page>
 
 <page tag="copy_of_monederos_display(2)" descr="Prepago_MonederosYBonos_MuestraSaldoPROMOCIONES" ismenu="false" volatile="false" count="true">
-Tu saldo de promociones es de $<include src="#balance_info"/> y vence el <include src="#expirationDate_info"/>. Consultalo gratis dde la App, marca 1 y te enviamos un SMS s/costo p/descargarla.<br/>
+Tu saldo de promociones es de $<include src="erl://svc_variable:incl?monederos&amp;balanceInfo"/> y vence el <include src="erl://svc_variable:incl?monederos&amp;expirationDateInfo"/>. Consultalo gratis dde la App, marca 1 y te enviamos un SMS s/costo p/descargarla.<br/>
 <a href="#enviarsmsapp" key="1"> Descargar App</a>
 </page>
 
 <page tag="copy_of_monederos_display(3)" descr="Prepago_MonederosYBonos_MuestraSaldoPRESTAMO" ismenu="false" volatile="false" count="true">
-Tu saldo de prestamos es de $<include src="#balance_info"/> y vence el <include src="#expirationDate_info"/>. Consultalo gratis dde la App, marca 1 y te enviamos un SMS s/costo p/descargarla.<br/>
+Tu saldo de prestamos es de $<include src="erl://svc_variable:incl?monederos&amp;balanceInfo"/> y vence el <include src="erl://svc_variable:incl?monederos&amp;expirationDateInfo"/>. Consultalo gratis dde la App, marca 1 y te enviamos un SMS s/costo p/descargarla.<br/>
 <a href="#enviarsmsapp" key="1"> Descargar App</a>
 </page>
 
@@ -135,39 +135,39 @@ Tu saldo de prestamos es de $<include src="#balance_info"/> y vence el <include 
 </page>
 
 <page tag="display_page1" descr="Prepago_MonederosYBonos_MuestraBonoPagina1" ismenu="false" hist="donthist" volatile="false" count="true">
-<include src="#description"/> - Te quedan <include src="#amount"/>,con venc <include src="#endDate"/>
+<include src="erl://svc_variable:incl?monederos&amp;description1"/> - Te quedan <include src="erl://svc_variable:incl?monederos&amp;amount1"/>,con venc <include src="erl://svc_variable:incl?monederos&amp;endDate1"/>
 </page>
 
 <page tag="display_page1_pre" ismenu="true" volatile="false" count="true">
-Consulta gratis tus <include src="#incloptionstr"/> disponibles desde la App Mi Movistar! Marca 1 y te enviamos un SMS gratis p/descargarla<br/>
+Consulta gratis tus <include src="erl://svc_variable:incl?monederos&amp;optionstr"/> disponibles desde la App Mi Movistar! Marca 1 y te enviamos un SMS gratis p/descargarla<br/>
 <a href="#smspre" key="1"> Descargar App</a><br/>
-<a href="#display_page1" key="2"> </a><include src="#copy_of_incloptionstr"/> disponibles
+<a href="#display_page1" key="2"> </a><include src="erl://svc_variable:incl?monederos&amp;optionstrmenu"/> disponibles
 </page>
 
 <page tag="display_page2" descr="Prepago_MonederosYBonos_MuestraBonoPagina2" ismenu="false" hist="donthist" volatile="false" count="true">
-<include src="#description1"/> - Te quedan <include src="#amount1"/>,con venc <include src="#endDate1"/><br/>
+<include src="erl://svc_variable:incl?monederos&amp;description1"/> - Te quedan <include src="erl://svc_variable:incl?monederos&amp;amount1"/>,con venc <include src="erl://svc_variable:incl?monederos&amp;endDate1"/><br/>
 <br/>
-<include src="#description2"/> - Te quedan <include src="#amount2"/>,con venc <include src="#endDate2"/>
+<include src="erl://svc_variable:incl?monederos&amp;description2"/> - Te quedan <include src="erl://svc_variable:incl?monederos&amp;amount2"/>,con venc <include src="erl://svc_variable:incl?monederos&amp;endDate2"/>
 </page>
 
 <page tag="display_page2_pre" ismenu="true" volatile="false" count="true">
-Consulta gratis tus <include src="#incloptionstr"/> disponibles desde la App Mi Movistar! Marca 1 y te enviamos un SMS gratis p/descargarla<br/>
+Consulta gratis tus <include src="erl://svc_variable:incl?monederos&amp;optionstr"/> disponibles desde la App Mi Movistar! Marca 1 y te enviamos un SMS gratis p/descargarla<br/>
 <a href="#smspre" key="1"> Descargar App</a><br/>
-<a href="#display_page2" key="2"> </a><include src="#copy_of_incloptionstr"/> disponibles
+<a href="#display_page2" key="2"> </a><include src="erl://svc_variable:incl?monederos&amp;optionstrmenu"/> disponibles
 </page>
 
 <page tag="display_page3" descr="Prepago_MonederosYBonos_MuestraBonoPagina3" ismenu="false" hist="donthist" volatile="false" count="true">
-<include src="#description1"/> - Te quedan <include src="#amount1"/>,con venc <include src="#endDate1"/><br/>
+<include src="erl://svc_variable:incl?monederos&amp;description1"/> - Te quedan <include src="erl://svc_variable:incl?monederos&amp;amount1"/>,con venc <include src="erl://svc_variable:incl?monederos&amp;endDate1"/><br/>
 <br/>
-<include src="#description2"/> - Te quedan <include src="#amount2"/>,con venc <include src="#endDate2"/><br/>
+<include src="erl://svc_variable:incl?monederos&amp;description2"/> - Te quedan <include src="erl://svc_variable:incl?monederos&amp;amount2"/>,con venc <include src="erl://svc_variable:incl?monederos&amp;endDate2"/><br/>
 <br/>
 <a href="#pageIndex_add" key="1">Ver mas</a>
 </page>
 
 <page tag="display_page3_pre" ismenu="true" volatile="false" count="true">
-Consulta gratis tus <include src="#incloptionstr"/> disponibles desde la App Mi Movistar! Marca 1 y te enviamos un SMS gratis p/descargarla<br/>
+Consulta gratis tus <include src="erl://svc_variable:incl?monederos&amp;optionstr"/> disponibles desde la App Mi Movistar! Marca 1 y te enviamos un SMS gratis p/descargarla<br/>
 <a href="#smspre" key="1"> Descargar App</a><br/>
-<a href="#display_page3" key="2"> </a><include src="#copy_of_incloptionstr"/> disponibles
+<a href="#display_page3" key="2"> </a><include src="erl://svc_variable:incl?monederos&amp;optionstrmenu"/> disponibles
 </page>
 
 <page tag="endDate" ismenu="false" volatile="false">
@@ -247,7 +247,7 @@ Recibiras un SMS para que puedas descargar la App Mi Movistar
 </page>
 
 <page tag="monederos_display" descr="Prepago_MonederosYBonos_MuestraSaldoRECARGAS" ismenu="false" volatile="false" count="true">
-Tu saldo recargas es de $<include src="#balance_info"/> y vence el <include src="#expirationDate_info"/>. Consultalo gratis desde la App, marca 1 y te enviamos un SMS s/costo p/descargarla.<br/>
+Tu saldo recargas es de $<include src="erl://svc_variable:incl?monederos&amp;balanceInfo"/> y vence el <include src="erl://svc_variable:incl?monederos&amp;expirationDateInfo"/>. Consultalo gratis desde la App, marca 1 y te enviamos un SMS s/costo p/descargarla.<br/>
 <a href="#enviarsmsapp" key="1"> Descargar App</a>
 </page>
 
@@ -268,7 +268,7 @@ No tenes extra credito Movistar disponible.
 </page>
 
 <page tag="opcion_menu" descr="MKT_PMyPVM_ConsultaDeSaldo" ismenu="true" volatile="false" count="true">
-Tu saldo total es $<include src="#id4"/><br/>
+Tu saldo total es $<include src="erl://svc_variable:incl?public&amp;saldototal"/><br/>
 <a href="#set_id" key="1">Saldo de Recargas</a><br/>
 <a href="#copy_of_set_id(2)" key="2">Saldo de Promociones</a><br/>
 <a href="#copy_of_set_id(3)" key="3">Saldo de Prestamos</a><br/>

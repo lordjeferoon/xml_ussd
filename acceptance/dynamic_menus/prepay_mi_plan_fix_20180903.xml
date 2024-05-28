@@ -50,19 +50,19 @@ Consumo <include src="#id27"/> <include src="#check_period"/><br/>
 </page>
 
 <page tag="beforeDate_2" ismenu="false" volatile="false">
-  <redirect src="erl://svc_miplan:setDate?miplan&amp;beforeDate&amp;0&amp;%7E4..0w-%7E2..0w-%7E2..0wT%7E2..0w%3A%7E2..0w%3A%7E2..0w-03%3A00&amp;%23afterDate_2"/>
+  <redirect src="erl://svc_miplan:setDate?miplan&amp;beforeDate&amp;7&amp;%7E4..0w-%7E2..0w-%7E2..0wT%7E2..0w%3A%7E2..0w%3A%7E2..0w-03%3A00&amp;%23afterDate_2"/>
 </page>
 
 <page tag="beforeDate_3" ismenu="false" volatile="false">
-  <redirect src="erl://svc_miplan:setDate?miplan&amp;beforeDate&amp;0&amp;%7E4..0w-%7E2..0w-%7E2..0wT%7E2..0w%3A%7E2..0w%3A%7E2..0w-03%3A00&amp;%23afterDate_3"/>
+  <redirect src="erl://svc_miplan:setDate?miplan&amp;beforeDate&amp;15&amp;%7E4..0w-%7E2..0w-%7E2..0wT%7E2..0w%3A%7E2..0w%3A%7E2..0w-03%3A00&amp;%23afterDate_3"/>
 </page>
 
 <page tag="beforeDate_4" ismenu="false" volatile="false">
-  <redirect src="erl://svc_miplan:setDate?miplan&amp;beforeDate&amp;0&amp;%7E4..0w-%7E2..0w-%7E2..0wT%7E2..0w%3A%7E2..0w%3A%7E2..0w-03%3A00&amp;%23afterDate_4"/>
+  <redirect src="erl://svc_miplan:setDate?miplan&amp;beforeDate&amp;30&amp;%7E4..0w-%7E2..0w-%7E2..0wT%7E2..0w%3A%7E2..0w%3A%7E2..0w-03%3A00&amp;%23afterDate_4"/>
 </page>
 
 <page tag="beforeDate_5" ismenu="false" volatile="false">
-  <redirect src="erl://svc_miplan:setDate?miplan&amp;beforeDate&amp;30&amp;%7E4..0w-%7E2..0w-%7E2..0wT%7E2..0w%3A%7E2..0w%3A%7E2..0w-03%3A00&amp;%23afterDate_5"/>
+  <redirect src="erl://svc_miplan:setDate?miplan&amp;beforeDate&amp;60&amp;%7E4..0w-%7E2..0w-%7E2..0wT%7E2..0w%3A%7E2..0w%3A%7E2..0w-03%3A00&amp;%23afterDate_5"/>
 </page>
 
 <page tag="calculate_cost_with_exponent" ismenu="false" volatile="false">
