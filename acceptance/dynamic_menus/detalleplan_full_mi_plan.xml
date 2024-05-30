@@ -10,27 +10,27 @@
 </page>
 
 <page tag="Impuestos" descr="Full_DetallePlan_MuestraImpuestos" ismenu="false" volatile="false" count="true">
-<include src="#incl_Impuestos"/>
+<include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;mas_info_list&amp;1%2C2%2C1"/>
 </page>
 
 <page tag="LDI _Brasil" descr="Full_DetallePlan_MuestraLlamadasLDIBrasil" ismenu="false" volatile="false" count="true">
-El precio de la llamada internacional a Brasil es de <include src="#incl_LDIaBrasil"/> y los primeros 30 seg <include src="#incl_LDIPrim30SegaBrasil"/>
+El precio de la llamada internacional a Brasil es de <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDI_list&amp;1%2C2%2C1"/> y los primeros 30 seg <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDI_list&amp;5%2C2%2C1"/>
 </page>
 
 <page tag="LDI_Cruceros" descr="Full_DetallePlan_MuestraLlamadasLDICruceros" ismenu="false" volatile="false" count="true">
-El precio de la llamada internacional en cruceros y aviones de <include src="#incl_LDIaCrucerosyAviones"/> y los primeros 30 seg <include src="#incl_LDIPrim30SegCrucAv"/>
+El precio de la llamada internacional en cruceros y aviones de <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDI_list&amp;4%2C2%2C1"/> y los primeros 30 seg <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDI_list&amp;8%2C2%2C1"/>
 </page>
 
 <page tag="LDI_Cuba" descr="Full_DetallePlan_MuestraLlamadasLDICuba" ismenu="false" volatile="false" count="true">
-El precio de la llamada internacional a Cuba es de <include src="#incl_LDIaCuba"/> y los primeros 30 seg <include src="#incl_LDIPrim30SegaCuba"/>
+El precio de la llamada internacional a Cuba es de <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDI_list&amp;2%2C2%2C1"/> y los primeros 30 seg <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDI_list&amp;6%2C2%2C1"/>
 </page>
 
 <page tag="LDI_Resto" descr="Full_DetallePlan_MuestraLlamadasLDIResto" ismenu="false" volatile="false" count="true">
-El precio de la llamada internacional al resto del mundo es de <include src="#incl_LDIRestoMundo"/> y los primeros 30 seg <include src="#incl_LDIPrim30SegRestoMundo"/>
+El precio de la llamada internacional al resto del mundo es de <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDI_list&amp;3%2C2%2C1"/> y los primeros 30 seg <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDI_list&amp;7%2C2%2C1"/>
 </page>
 
 <page tag="LDI_info" descr="Full_DetallePlan_MuestraLeyendaLDI" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaLDI"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaLDI"/>
 </page>
 
 <page tag="LDI_query" ismenu="false" volatile="false">
@@ -38,19 +38,19 @@ El precio de la llamada internacional al resto del mundo es de <include src="#in
 </page>
 
 <page tag="LDN_110a240" descr="Full_DetallePlan_MuestraLlamadasLDN110a240" ismenu="false" volatile="false" count="true">
-El precio de las llamadas nacionales de 110 a 240Km es de <include src="#incl_LDN110to240km"/> y los primeros 30 seg <include src="#incl_LDNPrim30Seg110to240"/>
+El precio de las llamadas nacionales de 110 a 240Km es de <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDN_list&amp;2%2C2%2C1"/> y los primeros 30 seg <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDN_list&amp;5%2C2%2C1"/>
 </page>
 
 <page tag="LDN_240" descr="Full_DetallePlan_MuestraLlamadasLDN240" ismenu="false" volatile="false" count="true">
-El precio de las llamadas nacionales de mas de 240Km es de <include src="#incl_LDNmas240km"/> y los primeros 30 seg <include src="#incl_LDNPrim30Segmas240"/>
+El precio de las llamadas nacionales de mas de 240Km es de <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDN_list&amp;3%2C2%2C1"/> y los primeros 30 seg <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDN_list&amp;6%2C2%2C1"/>
 </page>
 
 <page tag="LDN_30a110" descr="Full_DetallePlan_MuestraLlamadasLDN30a110" ismenu="false" volatile="false" count="true">
-El precio de las llamadas nacionales de 30 a 110Km es de <include src="#incl_LDN30to110km"/> y los primeros 30 seg <include src="#incl_LDNPrim30Seg30to110"/>
+El precio de las llamadas nacionales de 30 a 110Km es de <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDN_list&amp;1%2C2%2C1"/> y los primeros 30 seg <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;LDN_list&amp;4%2C2%2C1"/>
 </page>
 
 <page tag="LDN_info" descr="Full_DetallePlan_MuestraLeyendaLDN" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaLDN"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaLDN"/>
 </page>
 
 <page tag="LDN_query" ismenu="false" volatile="false">
@@ -62,7 +62,7 @@ No hay +info
 </page>
 
 <page tag="LeyendaGeneral" descr="Full_DetallePlan_MuestraLeyendaGeneral" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaGeneral"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaGeneral"/>
 </page>
 
 <page tag="LeyendaGeneral_null" descr="Full_DetallePlan_MuestraLeyendaGeneralVacia" ismenu="false" volatile="false" count="true">
@@ -82,7 +82,7 @@ No hay +info
 </page>
 
 <page tag="LeyendaNumFree" descr="Full_DetallePlan_MuestraLeyendaNumFree" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaNumFree"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaNumFree"/>
 </page>
 
 <page tag="LeyendaNumFree_null" descr="Full_DetallePlan_MuestraLeyendaNumFreeVacia" ismenu="false" volatile="false" count="true">
@@ -105,16 +105,16 @@ No hay +info
 </page>
 
 <page tag="Llamadas_Locale_mores" descr="Full_DetallePlan_MuestraLeyendaLlamadasLocales" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaLlama"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaLlama"/>
 </page>
 
 <page tag="Llamadas_Locales" descr="Full_DetallePlan_MuestraLlamadasLocales" ismenu="false" volatile="false" count="true">
-Bloque 1ros 30 seg: <include src="#incl_Prim30SegNoComu"/>. Segundo excedente: <include src="#incl_SegExcedNoComu"/>.<br/>
+Bloque 1ros 30 seg: <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;call_list&amp;2%2C2%2C1"/>. Segundo excedente: <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;call_list&amp;4%2C2%2C1"/>.<br/>
 <a href="#redir_by_LeyendaLlama" key="1"> + Info</a>
 </page>
 
 <page tag="Llamadas_info" descr="Full_DetallePlan_MuestraLeyendaLlamadasLocales" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaLlama1"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaLlama"/>
 </page>
 
 <page tag="Llamadas_info_empty" descr="Full_DetallePlan_MuestraLeyendaLlamadasLocalesVacia" ismenu="false" volatile="false" count="true">
@@ -122,14 +122,14 @@ No hay +info
 </page>
 
 <page tag="MMS_null" descr="Full_DetallePlan_MuestraLeyendaSMS" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaSMS"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaSMS"/>
 </page>
 
 <page tag="NrosFree" descr="Full_DetallePlan_MuestraNrosFree" ismenu="false" volatile="false" count="true">
 Nros Free incluidos:<br/>
-Para VOZ: <include src="#incl_NumFreeVozComu"/><br/>
+Para VOZ: <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;NumFree_list&amp;1%2C2%2C1"/><br/>
 Para SMS: <include src="#incl_NumFreeSMSComu&#9;"/><br/>
-Para Telefonica: <include src="#incl_NumFreeFijoTASA"/><br/>
+Para Telefonica: <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;NumFree_list&amp;3%2C2%2C1"/><br/>
 <a href="#redir_LeyendaNumFree" key="1"> +info</a>
 </page>
 
@@ -138,9 +138,9 @@ Para Telefonica: <include src="#incl_NumFreeFijoTASA"/><br/>
 </page>
 
 <page tag="SMS" descr="Full_DetallePlan_MuestraSMS" ismenu="false" volatile="false" count="true">
-SMS Nacional: <include src="#incl_SMSExced"/><br/>
-SMS Internacional: <include src="#incl_SMSInter"/><br/>
-MMS: <include src="#incl_MMSExced"/><br/>
+SMS Nacional: <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;sms_list&amp;2%2C2%2C1"/><br/>
+SMS Internacional: <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;sms_list&amp;3%2C2%2C1"/><br/>
+MMS: <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;sms_list&amp;5%2C2%2C1"/><br/>
 <a href="#redir_by_LeyendaSMS" key="1"> +Info</a>
 </page>
 
@@ -149,12 +149,13 @@ No hay +info
 </page>
 
 <page tag="SMS_more" descr="Full_DetallePlan_MuestraLeyendaSMSMMS" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaSMS"/><br/>
-<include src="#incl_LeyendaMMS"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaSMS"/><br/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaMMS"/>
 </page>
 
 <page tag="SMS_null" descr="Full_DetallePlan_MuestraLeyendaMMS" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaMMS"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaMMS
+"/>
 </page>
 
 <page tag="Tarifas" descr="Full_DetallePlan_MuestraMenuTarifas" ismenu="false" volatile="false" count="true">
@@ -197,18 +198,18 @@ Detalles de Tarifas<br/>
 </page>
 
 <page tag="copy_of_show_includio_items" descr="Full_DetallePlan_MuestraIncluidos" ismenu="false" volatile="false" count="true">
-Tu Abono mensual: <include src="#incl_Abono"/><br/>
-<include src="#incl_incudio_items"/><br/>
+Tu Abono mensual: <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Abono"/><br/>
+<include src="erl://svc_detalle_miplan:show?svc_telefonica_argentina&amp;Incluido_list_ok"/><br/>
 <a href="#update_includio_list" key="1"> ver mas</a>
 </page>
 
 <page tag="data_more" descr="Full_DetallePlan_MuestraLeyendaDatos" ismenu="false" volatile="false" count="true">
-<include src="#incl_LeyendaDatos"/>
+<include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;LeyendaDatos"/>
 </page>
 
 <page tag="data_page" descr="Full_DetallePlan_MuestraDatos" ismenu="false" volatile="false" count="true">
-Datos Mb:<include src="#incl_DatosExcedMb"/><br/>
-Internet por dia plus 50Mb: <include src="#incl_Internetxdia15Mb"/><br/>
+Datos Mb:<include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;data_list&amp;1%2C2%2C1"/><br/>
+Internet por dia plus 50Mb: <include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;data_list&amp;3%2C2%2C1"/><br/>
 <a href="#redir_by_LeyendaDatos" key="1"> +Info</a>
 </page>
 
@@ -249,12 +250,12 @@ Internet por dia plus 50Mb: <include src="#incl_Internetxdia15Mb"/><br/>
 </page>
 
 <page tag="disp_benefit" descr="Full_DetallePlan_MuestraBeneficios" ismenu="false" volatile="false" count="true">
-<include src="#incl_benefit"/>
+<include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;benefit_list_ok&amp;1%2C2%2C1"/>
 </page>
 
 <page tag="disp_benefit1" descr="Full_DetallePlan_MuestraBeneficios" ismenu="false" volatile="false" count="true">
-<include src="#incl_benefit"/><br/>
-<include src="#incl_benefit2"/>
+<include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;benefit_list_ok&amp;1%2C2%2C1"/><br/>
+<include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;benefit_list_ok&amp;2%2C2%2C1"/>
 </page>
 
 <page tag="error" descr="Full_DetallePlan_MuestraMensajePlanNoValido" ismenu="false" nav="end" volatile="false" count="true">
@@ -450,14 +451,14 @@ Para conocer el detalle de tu plan escribinos a: consultassobremilinea.ar@telefo
 </page>
 
 <page tag="init_page2" descr="MKT_CMyCVMyCEMyCMAyCVMA_DetallePlan" ismenu="false" hist="dohist" volatile="false" count="true">
-Tu PLAN <include src="#incl_desc"/> es de <include src="#incl_Abono"/>/mes.<br/>
+Tu PLAN <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Descripcion"/> es de <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Abono"/>/mes.<br/>
 <a href="#set_include_query" key="1"> Que incluye tu Plan</a><br/>
 <a href="#Tarifas" key="2"> Detalle de Tarifas</a><br/>
 <a href="#set_mas_info_query" key="3"> + Info</a>
 </page>
 
 <page tag="init_page4" descr="MKT_CMyCVMyCEMyCMAyCVMA_DetallePlan" ismenu="false" hist="dohist" volatile="false" count="true">
-Tu PLAN <include src="#incl_desc"/> es de <include src="#incl_Abono"/>/mes.<br/>
+Tu PLAN <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Descripcion"/> es de <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Abono"/>/mes.<br/>
 <a href="#set_include_query" key="1"> Que incluye tu Plan</a><br/>
 <a href="#redir_by_benefit" key="2"> Beneficios Extras</a><br/>
 <a href="#Tarifas" key="3"> Detalle de Tarifas</a><br/>
@@ -623,23 +624,23 @@ El servicio no está disponible temporalmente. Por favor intenta mas tarde.
 </page>
 
 <page tag="show_benefits" descr="Full_DetallePlan_MuestraBeneficios" ismenu="false" volatile="false" count="true">
-<include src="#incl_benefit"/><br/>
-<include src="#incl_benefit2"/><br/>
+<include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;benefit_list_ok&amp;1%2C2%2C1"/><br/>
+<include src="erl://svc_lists:include_list_item?svc_telefonica_argentina&amp;benefit_list_ok&amp;2%2C2%2C1"/><br/>
 <a href="#update_benefit_list" key="1"> ver mas</a>
 </page>
 
 <page tag="show_includio" descr="Full_DetallePlan_MuestraIncluidos" ismenu="false" volatile="false" count="true">
-<include src="#incl_incudio_items"/>
+<include src="erl://svc_detalle_miplan:show?svc_telefonica_argentina&amp;Incluido_list_ok"/>
 </page>
 
 <page tag="show_includio1" descr="Full_DetallePlan_MuestraIncluidos" ismenu="false" volatile="false" count="true">
-<include src="#incl_incudio_items"/><br/>
+<include src="erl://svc_detalle_miplan:show?svc_telefonica_argentina&amp;Incluido_list_ok"/><br/>
 <a href="#update_includio_list" key="1"> ver mas</a>
 </page>
 
 <page tag="show_includio_items1" descr="Full_DetallePlan_MuestraIncluidos" ismenu="false" volatile="false" count="true">
-Tu Abono mensual: <include src="#incl_Abono"/><br/>
-<include src="#incl_incudio_items"/>
+Tu Abono mensual: <include src="erl://svc_variable:incl?svc_telefonica_argentina&amp;Abono"/><br/>
+<include src="erl://svc_detalle_miplan:show?svc_telefonica_argentina&amp;Incluido_list_ok"/>
 </page>
 
 <page tag="sms_query" ismenu="false" volatile="false">

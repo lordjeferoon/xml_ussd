@@ -60,9 +60,9 @@ El servicio no está disponible temporalmente. Por favor intentá más tarde
 </page>
 
 <page tag="message_account_status" descr="Full_Amdocs_EstadoCuenta_MuestraEstado" ismenu="false" volatile="false" count="true">
-Su ultimo resumen de cuenta con vencimiento el dia <include src="#incl_fechas_fecha_venc_factura"/> fue de $<include src="#incl_saldo_ult_fact"/>, IVA incluido.<br/>
-El saldo adeudado a la fecha es de $<include src="#incl_saldos_saldo_cta_cte"/>, IVA incluido.<br/>
-Su proximo cierre es el dia <include src="#incl_fechas_fecha_prox_cierre"/>, con vencimiento el  <include src="#incl_fechas_fecha_prox_venc_fact"/>
+Su ultimo resumen de cuenta con vencimiento el dia <include src="erl://svc_variable:incl?estado_cuenta&amp;fecha_venc_fact"/> fue de $<include src="erl://svc_variable:incl?estado_cuenta&amp;saldo_ult_fact"/>, IVA incluido.<br/>
+El saldo adeudado a la fecha es de $<include src="erl://svc_variable:incl?estado_cuenta&amp;saldo_cta_cte"/>, IVA incluido.<br/>
+Su proximo cierre es el dia <include src="erl://svc_variable:incl?estado_cuenta&amp;fecha_prox_cierre"/>, con vencimiento el  <include src="erl://svc_variable:incl?estado_cuenta&amp;fecha_prox_venc_fact"/>
 </page>
 
 <page tag="req_err" ismenu="false" volatile="false">
